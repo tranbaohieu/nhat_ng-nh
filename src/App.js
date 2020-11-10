@@ -6,7 +6,7 @@ import House from "./Pages/House/House.jsx";
 import Designer from "./Pages/Designer/Designer.jsx";
 import DesignerDetail from "./Pages/DesignerDetail/DesignerDetail.jsx";
 import Idea from "./Pages/Idea/Idea.jsx";
-import Login from "./Pages/Login/Login.jsx";
+// import Login from "./Pages/Login/Login.jsx";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
           <Route exact path="/designer" component={Designer} />
           <Route path="/designer-detail/:id" component={DesignerDetail} />
           <Route exact path="/idea" component={Idea} />
-          <Route exact path="/login" component={Login} />
+          {/* <Route exact path="/login" component={Login} /> */}
         </Switch>
         <Footer />
       </div>

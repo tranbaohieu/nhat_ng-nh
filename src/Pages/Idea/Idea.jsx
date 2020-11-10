@@ -1,11 +1,11 @@
 import React from "react";
 import "./idea.sass";
-import objectiveImage from "../../images/body/objective/objective.svg";
+// import objectiveImage from "../../images/body/objective/objective.svg";
 
 const Objects = () => {
   return (
     <>
-      <div
+      {/* <div
         className="block_title"
         style={{
           backgroundImage: `url("${require("../../images/header/objective.png")}"`
@@ -73,7 +73,7 @@ const Objects = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

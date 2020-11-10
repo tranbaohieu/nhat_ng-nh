@@ -1,76 +1,37 @@
-.news_detail
+.designer_detail
   display: block
-  width: 800px
-  margin: 40px auto
-  .news_detail_header 
-    text-align: center
-    font-weight: 500
-    font-size: 13px
-    line-height: 16px
-    margin-bottom: 20px
-  .news_detail_image
-    margin-bottom: 24px
-  .news_detail_content
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1)
-    p
-      font-size: 14px
-      line-height: 20px
-      margin: 0 0 16px
-      &.first_pline
-        margin-bottom: 0
-    a
-      margin-bottom: 24px
-    b
-      font-size: 13px
-      line-height: 22px
-      color: #2A82C4
-    .news_detail_content_title
-      font-weight: 500
-      font-size: 20px
-      line-height: 25px
-      color: #2A82C4
-      margin-bottom: 8px
-    .news_detail_content_time
-      font-weight: normal
-      font-size: 13px
-      line-height: 15px
-      color: #AAAAAA
-      margin-bottom: 16px
-  .news_detail_related
-    padding: 24px 0
-    .news_detail_related_label
-      font-weight: 500
-      font-size: 20px
-      line-height: 25px
-      color: #666666
-      margin-bottom: 16px
-    .news_detail_related_list
-      display: flex
-      justify-content: space-between
-      .news_detail_related_list_item
-        width: calc((100% - 60px)/3)
-        img
-          margin-bottom: 12px
-        .news_detail_related_list_item_title
-          font-weight: 500
-          font-size: 14px
-          line-height: 20px
-          color: #2A82C4
-          margin-bottom: 8px
-        .news_detail_related_list_item_time
-          font-weight: normal
-          font-size: 13px
-          line-height: 15px
-          color: #AAAAAA
-
-@media (max-width: 1199.98px)
-  .news_detail
-    padding: 20px
-    margin: 0
-    width: auto
-    .news_detail_related
-      .news_detail_related_list
-        display: block
-        .news_detail_related_list_item
-          width: 100%
-          margin-bottom: 20px
+  width: 600 px
+  margin: 100px 100px 60px
+  .designer_information 
+    display: flex
+    .designer_information_image
+      margin-right: 20px
+      img
+        width: 800px
+        height: auto
+    .designer_information_detail
+      .designer_information_detail_title
+        font-size: 24px
+      p
+        padding: 18px
+        font-size: 20px
+        line-height: 24x
+        ul 
+            list-style: none
+            li
+              margin-bottom: 8px
+              &:last-child
+                margin-bottom: 0
+            li::before 
+              content: "\2022"
+              color: #2A82C4
+              font-weight: bold
+              display: inline-block
+              width: 1em
+              margin-left: -1em
+              
+  .designer_furniture
+    th
+      padding: 20px
+    td
+      padding: 20px

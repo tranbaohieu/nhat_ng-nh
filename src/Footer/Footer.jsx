@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="copyright">
-        Copyright © 2020 Fi-Mi © Project All Rights Reserved
+        Copyright © 2020 36 AND BROS
       </div>
       <div className="social_icon">
         <a href="#abc">

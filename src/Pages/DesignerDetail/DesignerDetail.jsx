@@ -1,131 +1,89 @@
 import React, {useEffect} from "react";
-import { Link } from 'react-router-dom'
 import "./designerdetail.sass";
+import ReactStars from "react-rating-stars-component";
+import { useTable } from 'react-table';
+import { columns, data } from './data.js';
 
-const NewsDetail = () => {
+const DesignerDetail = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+  } = useTable({
+    columns,
+    data,
+  });
 
   return (
     <>
-      <div 
-        className="block_title"
-        style={{
-          backgroundImage: `url("${require("../../images/header/news.png")}"`
-        }}
-      >News</div>
-      <div className="news_detail">
-        <div className="news_detail_header">
-          <Link to="/news">News</Link>
-          <span> / Newsletter No.1</span>
-        </div>
-        <div className="news_detail_image">
-          <img src={require("../../images/body/news/news_1.png")} alt="" />
-        </div>
-        <div className="news_detail_content">
-          <div className="news_detail_content_title">Newsletter No.1</div>
-          <div className="news_detail_content_time">26th Feb 2020</div>
-          <p className="first_pline">
-            The first issue of 5G-Enhance newsletter has been released. The
-            5G-Enhance newsletters will keep you updated with the latest project's
-            news and achievements.
-          </p>
-          <p className="link_file">
-            <a href="#abc">5G-Enhance_newsletter_No1</a>
-          </p>
-          <p>
-            <b>Introduction to 5G-Enhance </b>
-          </p>
-          <p>
-            5G Enhanced Mobile Broadband Access Networks in Crowded Environments
-            (5G-Enhance) is a Horizon 2020 joint project composed of EU research
-            team (VTT, FHG, UOULU and Accelleran) and Japan research team (TUAT,
-            NICT, UEC, CATV, JCTA and RWJ). 5G-Enhance intends to develop and
-            execute large scale trial activities on actual testbed in EU and
-            Japan.
-          </p>
-          <p>
-            A key objective for 5G-Enhance is to define and evaluate interoperable
-            5G eMBB and efficient network solutions in dense area.
-          </p>
-          <p>
-            In order to fulfil this the 5G-Enhance consortium has identified a
-            number of key project objectives; each of which is associated with a
-            distinct set of research and innovations. These specific objectives
-            are:
-          </p>
-          <p>
-            Objective 1: Develop, plan and execute large scale trial activities on
-            actual testbeds between EU and Japan.
-          </p>
-          <p>
-            Objective 2: Clarify the design and specification required for the
-            demonstration and trials based on two wireless applications with the
-            5G network.
-          </p>
-          <p>
-            Objective 3: Development of 5G enhanced mobile broadband technologies
-            in dense area for achieving the requirements (5G KPI) of the two
-            applications.
-          </p>
-          <p>
-            Objective 4: Establish long-term research collaboration between
-            leading industry players, top research institutes and universities in
-            Europe and Japan.
-          </p>
-        </div>
-        <div className="news_detail_related">
-          <div className="news_detail_related_label">Related News</div>
-          <div className="news_detail_related_list">
-            <div className="news_detail_related_list_item">
-              <div className="news_detail_related_list_item_image">
-                <img
-                  src={require("../../images/body/news/news_2.png")}
-                  alt="related news 1"
+      <div className="designer_detail">
+        <div className="designer_information">
+          <div className="designer_information_image">
+            <img src={require("../../images/body/designerdetail/5.jpg")} alt="" />
+          </div>
+          <div className="designer_information_detail">
+            <div className="designer_information_detail_title">
+              <b>Type</b>
+              <ul>
+                <li>Living Room</li>
+                <li>Classic</li>
+              </ul>
+              <b>Designer</b>
+              <p>ICON INTERIOR</p>  
+              <b>Description</b>
+              <p>If you are looking for an interior design of a luxury apartment with European beauty
+              but still friendly and cozy, you should definitely not miss this apartment. Elegant 
+              and sophisticated design lines. In addtion, new colors and combinations also help
+              the apartment to be more new.</p>
+              <b>Rate</b>
+              <p>
+                <ReactStars
+                  count={5}
+                  size={24}
+                  value={5}
+                  activeColor="#ffd700"
+                  edit={false}
                 />
-              </div>
-              <div className="news_detail_related_list_item_title">
-                EU JP Workshop
-              </div>
-              <div className="news_detail_related_list_item_time">
-                26th Feb 2020
-              </div>
-            </div>
-            <div className="news_detail_related_list_item">
-              <div className="news_detail_related_list_item_image">
-                <img
-                  src={require("../../images/body/news/news_3.png")}
-                  alt="related news 2"
-                />
-              </div>
-              <div className="news_detail_related_list_item_title">
-                The 6th IEEE WCNC International Workshop on Smart Spectrum (IWSS
-                2020).
-              </div>
-              <div className="news_detail_related_list_item_time">
-                26th Feb 2020
-              </div>
-            </div>
-            <div className="news_detail_related_list_item">
-              <div className="news_detail_related_list_item_image">
-                <img
-                  src={require("../../images/body/news/news_4.png")}
-                  alt="related news 3"
-                />
-              </div>
-              <div className="news_detail_related_list_item_title">
-                The 5th F2F meeting took place at Tokyo, Japan.
-              </div>
-              <div className="news_detail_related_list_item_time">
-                26th Feb 2020
-              </div>
+              </p>
             </div>
           </div>
+        </div>
+
+
+        <div className="designer_furniture">
+          <table {...getTableProps()}>
+            <thead>
+              {headerGroups.map(headerGroup => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map(column => (
+                    <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                  ))}
+                </tr>
+              ))}
+            </thead>
+            <tbody {...getTableBodyProps()}>
+              {rows.map((row, i) => {
+                prepareRow(row)
+                return (
+                  <tr {...row.getRowProps()}>
+                    {row.cells.map(cell => {
+                      return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                    })}
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
         </div>
       </div>
     </>
   );
 };
 
-export default NewsDetail;
+export default DesignerDetail;

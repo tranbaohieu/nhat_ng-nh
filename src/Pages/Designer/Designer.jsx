@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import "./designer.sass";
 import { Link } from "react-router-dom";
 import news_list from "./data.js";
+import ReactStars from "react-rating-stars-component";
 
 const News = () => {
   useEffect(() => {
@@ -29,9 +30,17 @@ const News = () => {
                   </div>
                 ) : null
               }
-              <div className="room_list_item_rate">{item.rate}</div>
               <div className="room_list_item_area">{item.area}</div>
-              <Link to="/news-detail/1" className="view_detail">View Detail &#62;&#62;</Link>
+              <div className="room_list_item_rate">
+                <ReactStars
+                  count={5}
+                  size={24}
+                  value={item.rate}
+                  activeColor="#ffd700"
+                  edit={false}
+                />
+              </div>
+              <Link to="/designer-detail/1" className="view_detail">View Detail &#62;&#62;</Link>
             </div>
           ))
         }
