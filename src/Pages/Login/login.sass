@@ -1,0 +1,142 @@
+.team
+  .team_logo
+    text-align: center
+    display: block
+    margin: 56px 0 96px
+    img
+      width: auto
+  .team_member
+    margin: 112px 200px
+    .member_list_title
+      font-size: 28px
+      font-weight: bold
+      color: #2A82C4
+    .member_list_line
+      width: 100px
+      height: 4px
+      background-color: grey
+      margin: 32px 0
+    .member_list_details
+      display: flex
+      flex-wrap: wrap
+      .team_member_item_member
+        width: 200px
+        margin: 0 32px 32px 0
+        text-align: center
+        a
+          font-weight: bold
+          // padding: 20px
+          font-size: 18px
+          line-height: 30px
+          color: #2A82C4
+        img
+          width: 100%
+          filter: grayscale(100%)
+          transition: .5s ease
+          border-radius: 20px
+        &:hover img
+          filter: none
+          border-radius: 0
+  .team_details
+    display: flex
+    .team_details_image_wrapper
+      display: flex
+      justify-content: flex-end
+      width: 50%
+      .team_details_image
+        width: 488px
+        height: 304px
+    .team_details_description_wrapper
+      width: 50%
+      align-items: center
+      display: flex
+      margin-left: 32px
+      .team_details_description
+        width: 488px
+        .team_details_description_title
+          font-weight: bold
+          font-size: 24px
+          line-height: 30px
+          color: #2A82C4
+        .team_details_description_line
+          width: 72px
+          height: 2px
+          background-color: #2A82C4
+          margin: 16px 0
+        .team_details_description_info
+          margin-left: -24px
+          ul 
+            list-style: none
+            li
+              margin-bottom: 8px
+              &:last-child
+                margin-bottom: 0
+            li::before 
+              content: "\2022"
+              color: #2A82C4
+              font-weight: bold
+              display: inline-block
+              width: 1em
+              margin-left: -1em
+
+  .team_japan
+    .team_details_image_wrapper
+      justify-content: flex-start
+    .team_details_description_wrapper
+      justify-content: flex-end
+      margin-left: 0
+      margin-right: 32px
+
+@media (max-width: 1199.98px) 
+  .team
+    padding: 20px
+    .team_logo img
+      width: 100%
+      margin-bottom: 36px
+    .team_details
+      display: block
+      .team_details_image_wrapper
+        display: block
+        width: auto
+        margin-bottom: 24px
+        .team_details_image
+          width: 100%
+          height: auto
+      .team_details_description_wrapper
+        width: auto
+        display: block
+        margin-bottom: 24px
+        .team_details_description
+          width: auto
+    
+    .team_vietnam
+      .team_details_description_wrapper
+        margin-left: 0
+
+    .team_japan
+      display: flex
+      flex-direction: column
+      .team_details_image_wrapper
+        order: 1
+        justify-content: unset
+        margin-bottom: 24px
+      .team_details_description_wrapper
+        order: 2
+        justify-content: unset
+        margin-bottom:  24px
+        
+    .team_member
+      margin: 0
+      .member_list_title
+        font-size: 24px
+      .member_list_line
+        height: 2px
+      .member_list_details
+        .team_member_item_member
+          padding: 0px 10px 0 0px
+          margin: 0
+          width: 50%
+          &:nth-child(2)
+            padding: 0px 0px 0px 10px
+          a
+            font-size: 16px
