@@ -34,6 +34,12 @@ const room_list = [
         description: "Interior sample 30m2 at Dreamland Bonanza Duy Tan",
         rate: "4",
         area: "200m2"
+    },
+    {
+        image: require("../../images/body/designer/10.jpg"),
+        description: "Interior sample 30m2 at Dreamland Bonanza Duy Tan",
+        rate: "4",
+        area: "200m2"
     }
   ];
 

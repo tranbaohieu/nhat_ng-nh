@@ -1,0 +1,37 @@
+.designer_detail
+  display: block
+  width: 600 px
+  margin: 100px 100px 60px
+  .designer_information 
+    display: flex
+    .designer_information_image
+      margin-right: 20px
+      img
+        width: 800px
+        height: auto
+    .designer_information_detail
+      .designer_information_detail_title
+        font-size: 24px
+      p
+        padding: 18px
+        font-size: 20px
+        line-height: 24x
+        ul 
+            list-style: none
+            li
+              margin-bottom: 8px
+              &:last-child
+                margin-bottom: 0
+            li::before 
+              content: "\2022"
+              color: #2A82C4
+              font-weight: bold
+              display: inline-block
+              width: 1em
+              margin-left: -1em
+              
+  .designer_furniture
+    th
+      padding: 20px
+    td
+      padding: 20px

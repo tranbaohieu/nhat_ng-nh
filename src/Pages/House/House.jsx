@@ -9,7 +9,7 @@ import Designer from "../Designer/Designer.jsx";
 const House = () => {
   const [show, setShow] = useState({ display: false, name: '', profile: '', email: '' });
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleShow = () => setShow(true);
   return (
     <div className="house">
       <div className="house_list">
