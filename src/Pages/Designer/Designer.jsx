@@ -57,9 +57,8 @@ const News = () => {
           id="dropdown-menu-align-right"
           onSelect={handleSelectSize}
             >
-            <Dropdown.Item>Action</Dropdown.Item>
-            <Dropdown.Item>Another action</Dropdown.Item>
-            <Dropdown.Item>Something else</Dropdown.Item>
+            <Dropdown.Item eventKey="5m2 - 20m2">5m2 - 20m2</Dropdown.Item>
+            <Dropdown.Item eventKey="20m2 - 30m2">20m2 - 30m2</Dropdown.Item>
         </DropdownButton>
 
         <DropdownButton

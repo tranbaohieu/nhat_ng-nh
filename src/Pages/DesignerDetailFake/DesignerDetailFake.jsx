@@ -3,6 +3,7 @@ import "./designerdetail.sass";
 import ReactStars from "react-rating-stars-component";
 import { useTable } from 'react-table';
 import { columns, data } from './search_data.js';
+import Carousel from 'react-bootstrap/Carousel';
 
 const DesignerDetailFake = () => {
   useEffect(() => {
@@ -29,21 +30,21 @@ const DesignerDetailFake = () => {
                 <Carousel.Item>
                   <img
                     // className="d-block w-100"
-                    src={require("../../images/body/designer/5.jpg")}
+                    src={require("../../images/body/designerdetail/6.jpg")}
                     alt="First slide"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     // className="d-block w-100"
-                    src={require("../../images/body/designer/6.jpg")}
+                    src={require("../../images/body/designerdetail/7.jpg")}
                     alt="Third slide"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     // className="d-block w-100"
-                    src={require("../../images/body/designer/7.jpg")}
+                    src={require("../../images/body/designerdetail/8.jpg")}
                     alt="Third slide"
                   />
                 </Carousel.Item>
