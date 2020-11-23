@@ -25,22 +25,20 @@ const DesignerDetailFake = () => {
       <div className="designer_detail">
         <div className="designer_information">
           <div className="designer_information_image">
-            <img src={require("../../images/body/designerdetail/5.jpg")} alt="" />
+            <img src={require("../../images/body/designerdetail/6.jpg")} alt="" />
           </div>
           <div className="designer_information_detail">
             <div className="designer_information_detail_title">
               <b>Type</b>
               <ul>
-                <li>Living Room</li>
-                <li>Classic</li>
+                <li>Bedroom</li>
+                <li>Asian</li>
               </ul>
               <b>Designer</b>
-              <p>ICON INTERIOR</p>  
+              <p>竹田</p>  
               <b>Description</b>
-              <p>If you are looking for an interior design of a luxury apartment with European beauty
-              but still friendly and cozy, you should definitely not miss this apartment. Elegant 
-              and sophisticated design lines. In addtion, new colors and combinations also help
-              the apartment to be more new.</p>
+              <p>Stand out with a picture of a golden lotus flower, symbolizing purity and purity. The architect Vinmic wishes to bring to Mr. Son's family a feeling of purifying mobile gases, enhancing good energy and eliminating bad things, avoiding sorrow.
+High-quality felt bed combined with imported mats in neutral colors, Asian-style wardrobe and open-design study desks create a comfortable, clear space to every corner.</p>
               <b>Rate</b>
               <p>
                 <ReactStars
