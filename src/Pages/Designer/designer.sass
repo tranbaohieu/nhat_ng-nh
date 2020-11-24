@@ -8,15 +8,23 @@
 .filter
   display: flex
   justify-content: center
+  margin-top: 20px
   .search_button
     margin: 0px -60px 0px 0px
   #dropdown-menu-align-right
     margin: 0 40px
     background-color: orange
     border: none
+    &:hover
+      color: #F49A00
+      background: white
+      // border-bottom-color: #F49A00
+    &:focus
+      color: #F49A00
+      background: white
   
 .room
-  padding: 40px 46px
+  padding: 40px
   .room_list
     display: flex
     flex-wrap: wrap
@@ -24,7 +32,7 @@
     width: 800px
     margin: 0 auto
     .room_list_item
-      width: calc((100% - 30px)/3)
+      width: calc((100% - 60px)/2)
       margin-bottom: 32px
       .room_list_item_time
         font-weight: normal
@@ -38,21 +46,22 @@
         font-weight: 500
         font-size: 14px
         line-height: 20px
-        color: #2A82C4
-      // &:first-child
-      //   width: 100%
-      //   border-bottom: 1px solid rgba(27, 15, 15, 0.1)
-      //   padding-bottom: 24px
-      //   .news_list_item_image
-      //     margin-bottom: 16px
-      //   .news_list_item_title
-      //     font-size: 20px
-      //     line-height: 25px
-      //     color: #2A82C4
-      //   a.view_detail
-      //     font-size: 14px
-      //     line-height: 20px
-      //     text-decoration: underline
+        color: #F49A00
+      &:first-child
+        justify-content: start
+        width: 100%
+        border-bottom: 1px solid rgba(27, 15, 15, 0.1)
+        padding-bottom: 24px
+        .news_list_item_image
+          margin-bottom: 16px
+        .news_list_item_title
+          font-size: 20px
+          line-height: 25px
+          color: #F49A00
+        a.view_detail
+          font-size: 14px
+          line-height: 20px
+          text-decoration: underline
       
 .news_navigation
   border-top: 1px solid rgba(0, 0, 0, 0.1) 

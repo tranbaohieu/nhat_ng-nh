@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import "./designer.sass";
 import { Link } from "react-router-dom";
-import news_list from "./data.js";
 import news_list_search from "./search_data.js";
 import ReactStars from "react-rating-stars-component";
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -12,33 +11,52 @@ const News = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const [dropdown_value,setDropDownValue]=useState({living_room: '', size: '', style: '', color: ''});
+  const [dropdown_value,setDropDownValue]=useState({room: '', size: '', style: '', color: ''});
   const handleSelectLivingRoom=(e)=>{
-    setDropDownValue({living_room: e, size: dropdown_value.size, style: dropdown_value.style, color: dropdown_value.color})
+    setDropDownValue({room: e, size: dropdown_value.size, style: dropdown_value.style, color: dropdown_value.color})
   }
   const handleSelectSize=(e)=>{
-    setDropDownValue({living_room: dropdown_value.living_room, size: e, style: dropdown_value.style, color: dropdown_value.color})
+    setDropDownValue({room: dropdown_value.room, size: e, style: dropdown_value.style, color: dropdown_value.color})
   }
   const handleSelectStyle=(e)=>{
-    setDropDownValue({living_room: dropdown_value.living_room, size: dropdown_value.size, style: e, color: dropdown_value.color})
+    setDropDownValue({room: dropdown_value.room, size: dropdown_value.size, style: e, color: dropdown_value.color})
   }
   const handleSelectColor=(e)=>{
-    setDropDownValue({living_room: dropdown_value.living_room, size: dropdown_value.size, style: dropdown_value.style, color: e})
+    setDropDownValue({room: dropdown_value.room, size: dropdown_value.size, style: dropdown_value.style, color: e})
   }
 
   const [searchValue,setSearchValue]=useState(false);
   const handleSearch=(e)=>{
     setSearchValue(true)
   }
+
+  const searchRoom = (item) => {
+      return dropdown_value.room === '' ? true : (dropdown_value.room === item.room)
+  }
+  const searchSize = (item) => {
+    return dropdown_value.size === '' ? true : ( dropdown_value.size === '5m2 - 20m2' ? item.size >= 5 && item.size <= 20 : item.size >= 20 && item.size <= 30)
+  }
+  const searchStyle = (item) => {
+    return dropdown_value.style === '' ? true : (dropdown_value.style === item.style)
+  }
+  const searchColor = (item) => {
+    return dropdown_value.color === '' ? true : (dropdown_value.color === item.color)
+  }
+
+  const resetDropdownValue = () => {
+    setDropDownValue({room: '', size: '', style: '', color: ''})
+  }
+
   return (
     <>
       <div className="filter">
         <DropdownButton
           alignRight
-          title={dropdown_value.living_room ? dropdown_value.living_room : 'Living room'}
+          title={dropdown_value.room ? dropdown_value.room : 'Room'}
           id="dropdown-menu-align-right"
           onSelect={handleSelectLivingRoom}
             >
+            <Dropdown.Item eventKey="Livingroom">Livingroom</Dropdown.Item>
             <Dropdown.Item eventKey="Bedroom">Bedroom</Dropdown.Item>
             <Dropdown.Item eventKey="Bathroom">Bathroom</Dropdown.Item>
             <Dropdown.Item eventKey="Kitchen">Kitchen</Dropdown.Item>
@@ -98,74 +116,45 @@ const News = () => {
             <Dropdown.Item eventKey="Blue">Blue</Dropdown.Item>
             <Dropdown.Item eventKey="Purple">Purple</Dropdown.Item>
         </DropdownButton>
-        <Button className="search_button" onClick={handleSearch}>Search</Button>
+        <Button onClick={resetDropdownValue}> Reset to default </Button>
       </div>
       <div className="room">
-        {/* {searchValue===true ? 
-        <div className="test"></div> : */}
         <div className="room_list">
-        { searchValue ?
+        {
           news_list_search.map((item, index) => (
-            <div className="room_list_item">
-              <div className="room_list_item_image">
-                <img
-                  src={item.image}
-                  alt={index}
-                />
-              </div>
-              {
-                item.description ? (
-                  <div className="room_list_item_description">
-                    <p>{item.description}</p>
-                  </div>
-                ) : null
-              }
-              <div className="room_list_item_area">{item.area}</div>
-              <div className="room_list_item_rate">
-                <ReactStars
-                  count={5}
-                  size={24}
-                  value={item.rate}
-                  activeColor="#ffd700"
-                  edit={false}
-                />
-              </div>
-              <Link to="/designer-detail-search/1" className="view_detail">View Detail &#62;&#62;</Link>
-            </div>
-          )) :
-          news_list.map((item, index) => (
-            <div className="room_list_item">
-              <div className="room_list_item_image">
-                <img
-                  src={item.image}
-                  alt={index}
-                />
-              </div>
-              {
-                item.description ? (
-                  <div className="room_list_item_description">
-                    <p>{item.description}</p>
-                  </div>
-                ) : null
-              }
-              <div className="room_list_item_area">{item.area}</div>
-              <div className="room_list_item_rate">
-                <ReactStars
-                  count={5}
-                  size={24}
-                  value={item.rate}
-                  activeColor="#ffd700"
-                  edit={false}
-                />
-              </div>
-              <Link to="/designer-detail/1" className="view_detail">View Detail &#62;&#62;</Link>
-            </div>
-          ))        
+            searchRoom(item) && searchSize(item) && searchStyle(item) && searchColor(item) ?
+                <div className="room_list_item">
+                <div className="room_list_item_image">
+                    <img
+                    src={item.image}
+                    alt={index}
+                    />
+                </div>
+                {
+                    item.description ? (
+                    <div className="room_list_item_description">
+                        <p>{item.description}</p>
+                    </div>
+                    ) : null
+                }
+                <div className="room_list_item_area">{item.area}</div>
+                <div className="room_list_item_rate">
+                    <ReactStars
+                    count={5}
+                    size={24}
+                    value={item.rate}
+                    activeColor="#ffd700"
+                    edit={false}
+                    />
+                </div>
+                <Link to={item.detail_link} className="view_detail">View Detail &#62;&#62;</Link>
+                </div>
+            : <div></div>)) 
         }
         </div>
       </div>
 
-      <div className="news_navigation">
+      {/* <div className="news_navigation">
         <div className="news_navigation_left news_navigation_transparent news_navigation_item">
           <img
             src={require("../../images/body/news/right_end.png")}
@@ -189,7 +178,7 @@ const News = () => {
             alt="right_end"
           />
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
