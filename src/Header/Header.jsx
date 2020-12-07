@@ -21,9 +21,13 @@ const Header = () => {
         </div>
         <div className="menu">
           {menu_list.map((item, index) => (
-            <Link key={item.link} to={item.link} className="item">
-              {item.text}
-            </Link>
+            index === 0 ?
+              <Link key={item.link} to={item.link} className="item active">
+                {item.text}
+              </Link>
+            : <Link key={item.link} to={item.link} className="item disabled">
+                {item.text}
+              </Link>
           ))}
         </div>
       </div>

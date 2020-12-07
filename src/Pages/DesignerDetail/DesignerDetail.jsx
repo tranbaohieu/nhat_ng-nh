@@ -13,8 +13,6 @@ const DesignerDetail = () => {
     window.scrollTo(0, 0);
   }, []);
   const location = useLocation();
-  console.log(location.pathname);
-  console.log(111111111)
   const renderTableData = () => {
     return my_table.map((item, index) => (
       item.detail_link === window.location.pathname ?
@@ -30,7 +28,7 @@ const DesignerDetail = () => {
   
 
   return (
-    <>
+    <div className="body">
       <div className="designer_detail">
         {my_table.map((item, index) => (
         item.detail_link === window.location.pathname ?
@@ -60,7 +58,7 @@ const DesignerDetail = () => {
                   <p>ICON INTERIOR</p>  
                   <b>Description</b>
                   <p>{item.description}</p>
-                  <b>Rate</b>
+                  {/* <b>Rate</b>
                   <p>
                     <ReactStars
                       count={5}
@@ -69,44 +67,48 @@ const DesignerDetail = () => {
                       activeColor="#ffd700"
                       edit={false}
                     />
-                  </p>
-                  <b>Summary</b>
-                  <ul>
-                    <li>5620$</li>
-                    <li>3 items</li>
-                    <li>1 supplier</li>
-                  </ul>
+                  </p> */}
                 </div>
               </div>
           </div>
-
-          <div className="designer_furniture">
-            <table>
-              <thead>
-                <tr>
-                  <th>No</th>
-                  <th>First Name</th>
-                  <th>Furniture</th>
-                  <th>Price</th>
-                  <th>Supplier</th>
-                </tr>
-              </thead>
-              <tbody>
-                  {item.data.map((data, index) => (
-                    <tr>
-                      <td>{data.no}</td>
-                      <td>{data.furniture}</td>
-                      <td>{data.price}</td>
-                      <td>{data.supplier}</td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
+          
+          <div className="design_sum_information">
+            <div className="designer_furniture">
+              <table>
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Furniture Name</th>
+                    <th>Price</th>
+                    <th>Supplier</th>
+                  </tr>
+                </thead>
+                <tbody className="furniture_details">
+                    {item.data.map((data, index) => (
+                      <tr>
+                        <td>{data.no}</td>
+                        <td>{data.furniture}</td>
+                        <td>{data.price}$</td>
+                        <td>{data.supplier}</td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="summary">
+              <b>Summary</b>
+              <ul>
+                {/* {item.data} */}
+                <li>5620$</li>
+                <li>{item.data.length} items</li>
+                <li>1 supplier</li>
+              </ul>
+            </div>
           </div>
         </div>
-        : <div></div>))}
+        : null))}
       </div>
-    </>
+    </div>
   );
 };
 

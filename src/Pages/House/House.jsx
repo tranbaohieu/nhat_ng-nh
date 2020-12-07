@@ -26,7 +26,12 @@ const House = () => {
                 </Link>
               </div>
               <div className="house_list_item_title">
-                <Link to="/designer">{item.title}</Link>
+                <Link
+                  to={{
+                    pathname: '/designer',
+                    query: { roomType: item.title },
+                  }}
+                >{item.title}</Link>
               </div>
             </div>
           ))
