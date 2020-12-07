@@ -1,0 +1,67 @@
+.objectives
+  display: flex
+  background-size: contain
+  background-position: bottom left
+  background-repeat: no-repeat
+  .objectives_image_wrapper
+    width: 50%
+    display: flex
+    justify-content: flex-end
+    .objectives_image
+      width: 488px
+      height: 488px
+      background-size: contain
+      background-position: center
+      background-repeat: no-repeat
+      margin: 56px 16px
+  .objective_content_wrapper
+    text-align: justify
+    width: 50%
+    display: flex
+    justify-content: flex-start
+    padding: 56px 16px
+  .objectives_content
+    width: 488px
+    background-size: contain
+    background-position: bottom left
+    background-repeat: no-repeat
+    font-size: 14px
+    line-height: 24px
+    .objectives_content_intro
+      color: #F49A00
+    .objectives_content_details
+      ul 
+        list-style: none
+        margin-left: -24px
+        li
+          margin-bottom: 16px
+          &:last-child
+            margin-bottom: 0
+      ul li::before 
+        content: "\2022"
+        color: #F49A00
+        font-weight: bold
+        display: inline-block
+        width: 1em
+        margin-left: -1em
+
+@media (max-width: 1199.98px) 
+  .objectives
+    flex-direction: column
+    padding: 20px
+    .objectives_image_wrapper
+      width: 100%
+      justify-content: center
+      .objectives_image
+        width: 334px
+        height: 334px
+        background-size: contain
+        background-position: center
+        background-repeat: no-repeat
+        margin: 20px
+    .objective_content_wrapper
+      width: 100%
+      padding: 0
+    .objectives_content
+      margin-left: auto
+      margin-right: auto
