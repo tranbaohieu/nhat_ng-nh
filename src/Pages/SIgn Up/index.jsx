@@ -90,7 +90,7 @@ const register = () => {
             <Input.Password
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
-              placeholder="Password"
+              placeholder="Confirm Password"
             //   onChange={this.handlePassword}
             />
           </Form.Item>
@@ -100,7 +100,7 @@ const register = () => {
             rules={[
               {
                 required: true,
-                message: "Please input your nickname!",
+                message: "Please input your User name!",
                 whitespace: true,
               },
             ]}
