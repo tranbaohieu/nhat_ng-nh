@@ -1,31 +1,29 @@
 import React, {useEffect} from "react";
 import "./designerdetail.sass";
-import ReactStars from "react-rating-stars-component";
-import { useTable } from 'react-table';
+// import ReactStars from "react-rating-stars-component";
+// import { useTable } from 'react-table';
 // import { columns, data } from './data.js';
 import {my_table} from './data.js';
 import Carousel from 'react-bootstrap/Carousel';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
 
 const DesignerDetail = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const location = useLocation();
-  const renderTableData = () => {
-    return my_table.map((item, index) => (
-      item.detail_link === window.location.pathname ?
-          <tr>
-              <td>{item.data.no}</td>
-              <td>{item.data.furniture}</td>
-              <td>{item.data.price}</td>
-              <td>{item.data.supplier}</td>
-          </tr>
-        : <div></div> ))
-  }
-
-  
+  // const location = useLocation();
+  // const renderTableData = () => {
+  //   return my_table.map((item, index) => (
+  //     item.detail_link === window.location.pathname ?
+  //         <tr>
+  //             <td>{item.data.no}</td>
+  //             <td>{item.data.furniture}</td>
+  //             <td>{item.data.price}</td>
+  //             <td>{item.data.supplier}</td>
+  //         </tr>
+  //       : <div></div> ))
+  // }
 
   return (
     <div className="body">
