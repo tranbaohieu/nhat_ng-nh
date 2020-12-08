@@ -9,7 +9,7 @@ import Designer from "../Designer/Designer.jsx";
 const House = () => {
   const [show, setShow] = useState({ display: false, name: '', profile: '', email: '' });
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleShow = () => setShow(true);
   return (
     <div className="house">
       <div className="house_list">
@@ -26,7 +26,12 @@ const House = () => {
                 </Link>
               </div>
               <div className="house_list_item_title">
-                <Link to="/designer">{item.title}</Link>
+                <Link
+                  to={{
+                    pathname: '/designer',
+                    query: { roomType: item.title },
+                  }}
+                >{item.title}</Link>
               </div>
             </div>
           ))

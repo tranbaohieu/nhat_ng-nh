@@ -5,16 +5,60 @@
   font-weight: bold
   margin-top: 50px
 
+.body
+  background-color: #f9f9f9
+
+.filter
+  display: flex
+  justify-content: center
+  margin-top: 20px
+  padding: 30px 5px;
+  .dropdown
+    margin: 0 30px;
+  .search_button
+    margin: 0px -60px 0px 0px
+  .btn-reset
+    background-color: #fff;
+    color: #f49a00;
+    border-color: #fff;
+    cursor: pointer;
+    margin: 0 30px;
+    font-size: 20px
+    &:hover
+      color: #fff
+      background: #F49A00
+      // border-bottom-color: #F49A00
+    &:focus
+      color: #fff
+      background: #F49A00
+  #dropdown-menu-align-right
+    margin: 0 40px
+    background-color: #F49A00
+    border: none
+    font-size: 20px
+    &:hover
+      color: #fff
+      background: #F49A00
+      // border-bottom-color: #F49A00
+    &:focus
+      color: #fff
+      background: #F49A00
+
+img 
+  height: 100%
+  cursor: pointer
+
 .room
-  padding: 40px 46px
+  background: #f9f9f9
+  padding: 20px 40px
   .room_list
     display: flex
     flex-wrap: wrap
-    justify-content: space-between
-    width: 800px
-    margin: 0 auto
+    justify-content: space-evenly;
+    width: 100%
+    padding: 0 100px
     .room_list_item
-      width: calc((100% - 30px)/3)
+      width: 400px
       margin-bottom: 32px
       .room_list_item_time
         font-weight: normal
@@ -23,66 +67,77 @@
         color: #AAAAAA
       .room_list_item_image
         margin-bottom: 16px 
+        height: 250px;
+        position: relative;
       .room_list_item_title
-        margin-bottom: 12px
-        font-weight: 500
-        font-size: 14px
-        line-height: 20px
-        color: #2A82C4
-      // &:first-child
-      //   width: 100%
-      //   border-bottom: 1px solid rgba(27, 15, 15, 0.1)
-      //   padding-bottom: 24px
-      //   .news_list_item_image
-      //     margin-bottom: 16px
-      //   .news_list_item_title
-      //     font-size: 20px
-      //     line-height: 25px
-      //     color: #2A82C4
-      //   a.view_detail
-      //     font-size: 14px
-      //     line-height: 20px
-      //     text-decoration: underline
-  .news_navigation
-    border-top: 1px solid rgba(0, 0, 0, 0.1) 
-    padding-top: 24px
-    display: flex
-    justify-content: center
-    .news_navigation_item
-      font-size: 14px
-      line-height: 20px
-      font-weight: 500
-      width: 40px
-      height: 40px
-      border-radius: 4px
-      text-align: center
-      margin-right: 8px
-      cursor: pointer
-      color: #666666
-      background-color: white
-      border: 1px solid rgba(127, 150, 179, 0.302994)
-      transition: .2s ease
-      display: flex
-      align-items: center
-      justify-content: center
-      &.active, &:hover
-        color: white
-        background: linear-gradient(138.36deg, #1D48E3 0%, #1DACE3 94.78%)
-      &:last-child
-        margin-right: 0
-        margin-left: -8px
-        padding: 6px 3px
+        margin-bottom: 12px;
+        font-weight: 500;
+        font-size: 25px;
+        color: #000;
+        line-height: 30px;
+        cursor: pointer;
+        &:hover
+          color: #F49A00;
+          text-decoration: underline;
+      .room_list_item_square
+        color: #000
+        font-weight: bold
+        font-size: 20px
       &:first-child
-        padding: 6px 3px
-        margin-right: 0
-    .news_navigation_transparent
-      background: transparent
-      color: #327FE9
-      border: 0
-      img
-        width: auto
-      &:hover img
-        filter: brightness(0) invert(1)
-    .news_navigation_left
-      transform: rotate(180deg)
+        justify-content: start
+        border-bottom: 1px solid rgba(27, 15, 15, 0.1)
+        padding-bottom: 24px
+        .news_list_item_image
+          margin-bottom: 16px
+        .news_list_item_title
+          font-size: 20px
+          line-height: 25px
+          color: #F49A00
+        a.view_detail
+          font-size: 14px
+          line-height: 20px
+          text-decoration: underline
+      
+.news_navigation
+  border-top: 1px solid rgba(0, 0, 0, 0.1) 
+  padding-top: 24px
+  display: flex
+  justify-content: center
+  .news_navigation_item
+    font-size: 14px
+    line-height: 20px
+    font-weight: 500
+    width: 40px
+    height: 40px
+    border-radius: 4px
+    text-align: center
+    margin-right: 8px
+    cursor: pointer
+    color: #666666
+    background-color: white
+    border: 1px solid rgba(127, 150, 179, 0.302994)
+    transition: .2s ease
+    display: flex
+    align-items: center
+    justify-content: center
+    &.active, &:hover
+      color: white
+      background: linear-gradient(138.36deg, #1D48E3 0%, #1DACE3 94.78%)
+    &:last-child
+      margin-right: 0
+      margin-left: -8px
+      padding: 6px 3px
+    &:first-child
+      padding: 6px 3px
+      margin-right: 0
+  .news_navigation_transparent
+    background: transparent
+    color: #327FE9
+    border: 0
+    img
+      width: auto
+    &:hover img
+      filter: brightness(0) invert(1)
+  .news_navigation_left
+    transform: rotate(180deg)
         

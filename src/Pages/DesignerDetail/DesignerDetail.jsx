@@ -2,87 +2,113 @@ import React, {useEffect} from "react";
 import "./designerdetail.sass";
 import ReactStars from "react-rating-stars-component";
 import { useTable } from 'react-table';
-import { columns, data } from './data.js';
+// import { columns, data } from './data.js';
+import {my_table} from './data.js';
+import Carousel from 'react-bootstrap/Carousel';
+import { useLocation } from 'react-router-dom';
+
 
 const DesignerDetail = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const location = useLocation();
+  const renderTableData = () => {
+    return my_table.map((item, index) => (
+      item.detail_link === window.location.pathname ?
+          <tr>
+              <td>{item.data.no}</td>
+              <td>{item.data.furniture}</td>
+              <td>{item.data.price}</td>
+              <td>{item.data.supplier}</td>
+          </tr>
+        : <div></div> ))
+  }
+
   
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-  } = useTable({
-    columns,
-    data,
-  });
 
   return (
-    <>
+    <div className="body">
       <div className="designer_detail">
-        <div className="designer_information">
-          <div className="designer_information_image">
-            <img src={require("../../images/body/designerdetail/5.jpg")} alt="" />
+        {my_table.map((item, index) => (
+        item.detail_link === window.location.pathname ?
+        <div>
+          <div className="designer_information">
+            <div className="designer_information_image">
+            <Carousel>
+                {item.image.map((image, index) => (
+                <Carousel.Item>
+                  <img
+                    src={image.url}
+                    alt="First slide"
+                  />
+                </Carousel.Item>
+                ))}
+              </Carousel>
+            </div>
+            
+              <div className="designer_information_detail">
+                <div className="designer_information_detail_title">
+                  <b>Type</b>
+                  <ul>
+                    <li>{item.room}</li>
+                    <li>{item.style}</li>
+                  </ul>
+                  <b>Designer</b>
+                  <p>ICON INTERIOR</p>  
+                  <b>Description</b>
+                  <p>{item.description}</p>
+                  {/* <b>Rate</b>
+                  <p>
+                    <ReactStars
+                      count={5}
+                      size={24}
+                      value={item.rate}
+                      activeColor="#ffd700"
+                      edit={false}
+                    />
+                  </p> */}
+                </div>
+              </div>
           </div>
-          <div className="designer_information_detail">
-            <div className="designer_information_detail_title">
-              <b>Type</b>
+          
+          <div className="design_sum_information">
+            <div className="designer_furniture">
+              <table>
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Furniture Name</th>
+                    <th>Price</th>
+                    <th>Supplier</th>
+                  </tr>
+                </thead>
+                <tbody className="furniture_details">
+                    {item.data.map((data, index) => (
+                      <tr>
+                        <td>{data.no}</td>
+                        <td>{data.furniture}</td>
+                        <td>{data.price}$</td>
+                        <td>{data.supplier}</td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="summary">
+              <b>Summary</b>
               <ul>
-                <li>Living Room</li>
-                <li>Classic</li>
+                {/* {item.data} */}
+                <li>5620$</li>
+                <li>{item.data.length} items</li>
+                <li>1 supplier</li>
               </ul>
-              <b>Designer</b>
-              <p>ICON INTERIOR</p>  
-              <b>Description</b>
-              <p>If you are looking for an interior design of a luxury apartment with European beauty
-              but still friendly and cozy, you should definitely not miss this apartment. Elegant 
-              and sophisticated design lines. In addtion, new colors and combinations also help
-              the apartment to be more new.</p>
-              <b>Rate</b>
-              <p>
-                <ReactStars
-                  count={5}
-                  size={24}
-                  value={5}
-                  activeColor="#ffd700"
-                  edit={false}
-                />
-              </p>
             </div>
           </div>
         </div>
-
-
-        <div className="designer_furniture">
-          <table {...getTableProps()}>
-            <thead>
-              {headerGroups.map(headerGroup => (
-                <tr {...headerGroup.getHeaderGroupProps()}>
-                  {headerGroup.headers.map(column => (
-                    <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-                  ))}
-                </tr>
-              ))}
-            </thead>
-            <tbody {...getTableBodyProps()}>
-              {rows.map((row, i) => {
-                prepareRow(row)
-                return (
-                  <tr {...row.getRowProps()}>
-                    {row.cells.map(cell => {
-                      return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                    })}
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-        </div>
+        : null))}
       </div>
-    </>
+    </div>
   );
 };
 

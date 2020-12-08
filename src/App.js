@@ -6,8 +6,10 @@ import House from "./Pages/House/House.jsx";
 import Designer from "./Pages/Designer/Designer.jsx";
 import DesignerDetail from "./Pages/DesignerDetail/DesignerDetail.jsx";
 import Idea from "./Pages/Idea/Idea.jsx";
-// import Login from "./Pages/Login/Login.jsx";
+import Login from "./Pages/Login/Login.jsx";
+import SignUp from "./Pages/SIgn Up/index.jsx"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import 'antd/dist/antd.css'
 
 function App() {
   return (
@@ -19,7 +21,8 @@ function App() {
           <Route exact path="/designer" component={Designer} />
           <Route path="/designer-detail/:id" component={DesignerDetail} />
           <Route exact path="/idea" component={Idea} />
-          {/* <Route exact path="/login" component={Login} /> */}
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={SignUp}/>
         </Switch>
         <Footer />
       </div>
