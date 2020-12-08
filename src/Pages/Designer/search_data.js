@@ -1,144 +1,144 @@
 const room_list_search = [
     {
-      image: require("../../images/body/Images/1.jpg"),
-      description: "Thiết kế  hiện đại và tiện nghi",
-      size: 25,
-      room: "Livingroom",
-      style: "Classic",
+      image: require("../../images/body/Images/11phong-cach-indochine-noi-that-vinmicjpg-1053.jpg"),
+      description: "Asian bedroom",
+      size: 20,
+      room: "Bedroom",
+      style: "Asian",
       detail_link: "/designer-detail/1",
       rate: "5", 
-      color: "White"
+      color: ["White", "Black"]
     },
     {
-      image: require("../../images/body/Images/2.jpg"),
-      description: "Thiết kế  hiện đại và tiện nghi",
-      size: 21,
-      room: "Livingroom",
+      image: require("../../images/body/Images/classic-bedroom-photos-by-leaf-design.jpg"),
+      description: "Masteri cross, D2",
+      size: 25,
+      room: "Bedroom",
       style: "Classic",
       detail_link: "/designer-detail/2",
-      rate: "5", 
-      color: "White"
+      rate: "4", 
+      color: ["White", "Beige", "Grey"]
     },
     {
-      image: require("../../images/body/Images/3.jpg"),
-      description: "Thiết kế  hiện đại và tiện nghi",
+      image: require("../../images/body/Images/modern-bedroom-photos-by-uk-design-studio-ki-n-truc-uk.jpg"),
+      description: "Interior design of modern 2-floor",
       size: 22,
       room: "Bedroom",
       style: "Modern",
       detail_link: "/designer-detail/3",
       rate: "5", 
-      color: "Black"
+      color: ["Pink", "White", "Grey", "Black"]
     },
     {
-      image: require("../../images/body/Images/4.jpg"),
-      description: "Thiết kế  hiện đại và tiện nghi",
-      size: 10,
+      image: require("../../images/body/Images/modern-bedroom-photos-by-icon-interior.jpg"),
+      description: "Modern Park 7 Vinhomes Central Park apartments",
+      size: 18,
       room: "Bedroom",
       style: "Modern",
       detail_link: "/designer-detail/4",
       rate: "5", 
-      color: "Black"
+      color: ["Black", "Grey", "Navy"]
     },
     {
-      image: require("../../images/body/Images/5.jpg"),
-      description: "Thiết kế  hiện đại và tiện nghi",
-      size: 15,
-      room: "Kitchen",
-      style: "Asia",
+      image: require("../../images/body/Images/classic-living-room-photos-by-icon-interior.jpg"),
+      description: "Neoclassical style - House designed to create, inspire life",
+      size: 30,
+      room: "Livingroom",
+      style: "Neo-classic",
       detail_link: "/designer-detail/5",
       rate: "5", 
-      color: "Pink"
+      color: ["White", "Gold", "Dark brown"]
     },
     {
-      image: require("../../images/body/Images/6.jpg"),
-      description: "Thiết kế  hiện đại và tiện nghi",
-      size: 18,
-      room: "Kitchen",
-      style: "Asia",
+      image: require("../../images/body/Images/asian-living-room-photos-by-leaf-design.jpg"),
+      description: "Asian emotions - Saigon townhouses",
+      size: 20,
+      room: "Livingroom",
+      style: "Asian",
       detail_link: "/designer-detail/6",
       rate: "5", 
-      color: "Pink"
+      color: ["Yellow","Woody","Brown"]
     },
     {
-      image: require("../../images/body/Images/7.jpg"),
-      description: "Thiết kế  hiện đại và tiện nghi",
-      size: 24,
-      room: "Livingroom",
-      style: "Electric",
-      detail_link: "/designer-detail/7",
-      rate: "5", 
-      color: "Red"
-    },
-    {
-      image: require("../../images/body/Images/8.jpg"),
-      description: "Thiết kế  hiện đại và tiện nghi",
-      size: 26,
-      room: "Livingroom",
-      style: "Electric",
-      detail_link: "/designer-detail/8",
-      rate: "5", 
-      color: "Red"
-    },
-    {
-      image: require("../../images/body/Images/9.jpg"),
-      description: "Thiết kế  hiện đại và tiện nghi",
-      size: 10,
-      room: "Bedroom",
-      style: "Industry",
-      detail_link: "/designer-detail/9",
-      rate: "5", 
-      color: "Grown"
-    },
-    {
-      image: require("../../images/body/Images/10.jpg"),
-      description: "Thiết kế  hiện đại và tiện nghi",
-      size: 14,
-      room: "Bedroom",
-      style: "Country",
-      detail_link: "/designer-detail/10",
-      rate: "5", 
-      color: "Grown"
-    },
-    {
-      image: require("../../images/body/Images/11.jpg"),
-      description: "Thiết kế  hiện đại và tiện nghi",
-      size: 12,
-      room: "Bathroom",
-      style: "Country",
-      detail_link: "/designer-detail/11",
-      rate: "5", 
-      color: "Orange"
-    },
-    {
-      image: require("../../images/body/Images/12.jpg"),
-      description: "Thiết kế  hiện đại và tiện nghi",
-      size: 20,
-      room: "Bathroom",
-      style: "Tropic",
-      detail_link: "/designer-detail/12",
-      rate: "5", 
-      color: "Orange"
-    },
-    {
-      image: require("../../images/body/Images/13.jpg"),
-      description: "Thiết kế  hiện đại và tiện nghi",
-      size: 20,
-      room: "Kitchen",
-      style: "Tropic",
-      detail_link: "/designer-detail/13",
-      rate: "5", 
-      color: "Green"
-    },
-    {
-      image: require("../../images/body/Images/14.jpg"),
-      description: "Thiết kế  hiện đại và tiện nghi",
+      image: require("../../images/body/Images/industrial-living-room-photos-by-cong-ty-c-ph-n-n-i-th-t-decox.jpg"),
+      description: "MY VIEN APARTMENT 120M2",
       size: 18,
       room: "Livingroom",
-      style: "Tropic",
-      detail_link: "/designer-detail/14",
+      style: "Industrial",
+      detail_link: "/designer-detail/7",
       rate: "5", 
-      color: "Green"
-    }
+      color: ["Stone grey", "Woddy brown"]
+    },
+    {
+      image: require("../../images/body/Images/tropical-kitchen-photos-by-ad.jpg"),
+      description: "SHIFT houses",
+      size: 10,
+      room: "Kitchen",
+      style: "Modern",
+      detail_link: "/designer-detail/8",
+      rate: "5", 
+      color: ["Brown", "White"]
+    },
+    {
+      image: require("../../images/body/Images/modern-kitchen-photos-by-artof3l.jpg"),
+      description: "Kitchen furniture",
+      size: 25,
+      room: "Kitchen",
+      style: "Industrial",
+      detail_link: "/designer-detail/9",
+      rate: "5", 
+      color: ["Woody", "White"]
+    },
+    {
+      image: require("../../images/body/Images/tropical-bathroom-photos-by-ad.jpg"),
+      description: "Interior design of Vista Verde Apartment",
+      size: 15,
+      room: "Bathroom",
+      style: "Modern",
+      detail_link: "/designer-detail/10",
+      rate: "5", 
+      color: ["Woody", "Gold", "White"]
+    },
+    {
+      image: require("../../images/body/Images/tropical-bathroom-photos.jpg"),
+      description: "The UMBRELLA",
+      size: 12,
+      room: "Bathroom",
+      style: "Tropical",
+      detail_link: "/designer-detail/11",
+      rate: "5", 
+      color: ["White", "Green"] 
+    },
+    {
+      image: require("../../images/body/Images/asian-kitchen-photos-by-leaf-design.jpg"),
+      description: "Asian emotions - Saigon townhouses",
+      size: 27,
+      room: "Kitchen",
+      style: "Asian",
+      detail_link: "/designer-detail/12",
+      rate: "5", 
+      color: ["Woody", "Grey", "Green"]
+    },
+    // {
+    //   image: require("../../images/body/Images/13.jpg"),
+    //   description: "Thiết kế  hiện đại và tiện nghi",
+    //   size: 20,
+    //   room: "Kitchen",
+    //   style: "Tropic",
+    //   detail_link: "/designer-detail/13",
+    //   rate: "5", 
+    //   color: "Green"
+    // },
+    // {
+    //   image: require("../../images/body/Images/14.jpg"),
+    //   description: "Thiết kế  hiện đại và tiện nghi",
+    //   size: 18,
+    //   room: "Livingroom",
+    //   style: "Tropic",
+    //   detail_link: "/designer-detail/14",
+    //   rate: "5", 
+    //   color: "Green"
+    // }
 
   ];
 
