@@ -10,6 +10,21 @@ const menu_list = [
   { text: "Login/Sign Up", link: "/login" },
 ];
 
+const signIn = (item) => {
+  if (item.text === "Login/Sign Up"){
+    if (localStorage.getItem("name") != null){
+      return localStorage.getItem("name")
+    }
+    else {
+      return item.text
+    }
+  }
+  else {
+    console.log(localStorage.getItem("name"))
+    return item.text
+  }
+}
+
 const Header = () => {
   return (
     <div className="header">
@@ -23,10 +38,10 @@ const Header = () => {
           {menu_list.map((item, index) => (
             index === 0 ?
               <Link key={item.link} to={item.link} className="item active">
-                {item.text}
+                {signIn(item)}
               </Link>
             : <Link key={item.link} to={item.link} className="item disabled">
-                {item.text}
+                {signIn(item)}
               </Link>
           ))}
         </div>
