@@ -1,4 +1,20 @@
 @charset "UTF-8";
+#button1,#button2,#button3,#button4
+:active{
+  color: #F49A00;
+  border-top:none ;
+  border-left: none;
+  border-right: none;
+  border-bottom-color: #F49A00;
+  /* border: 1px; */
+}
+#button1,#button2,#button3,#button4{
+  border-top:none ;
+  border-left: none;
+  border-right: none;
+}
+
+
 .team .team_logo {
   text-align: center;
   display: block;

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Card, Button, Form, Input } from "antd";
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { UserOutlined, LockOutlined} from "@ant-design/icons";
 import { Modal } from "@material-ui/core/";
+import './dist/login.css'
 // import SignUp from "../SIgn Up/index";
 
 // import "../../Header/header.sass"
-import "./login.sass";
+// import "./login.sass";
 // import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -39,14 +40,14 @@ const Login = () => {
           bordered={true}
         >
           <div style={{ display: "flex", justifyContent: "space-around" }}>
-            <Button
-              style={{ border: "none", backgroundColor: "transparent" }}
+            <Button id="button1"
+              style={{ backgroundColor: "transparent" }}
               onClick={handleOpenRegister}
             >
               Log In
             </Button>
-            <Button
-              style={{ border: "none", backgroundColor: "transparent" }}
+            <Button id="button2"
+              style={{ backgroundColor: "transparent" }}
               onClick={handleOpenLogin}
             >
               Sign Up
@@ -173,14 +174,14 @@ const Login = () => {
           bordered={true}
         >
           <div style={{ display: "flex", justifyContent: "space-around" }}>
-            <Button
-              style={{ border: "none", backgroundColor: "transparent" }}
+            <Button id="button3"
+              style={{ backgroundColor: "transparent" }}
               onClick={handleOpenRegister}
             >
               Log In
             </Button>
-            <Button
-              style={{ border: "none", backgroundColor: "transparent" }}
+            <Button id="button4"
+              style={{ backgroundColor: "transparent" }}
               onClick={handleOpenLogin}
             >
               Sign Up
