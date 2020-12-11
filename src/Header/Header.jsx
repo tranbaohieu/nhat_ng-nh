@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "./header.sass";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
-import { Button, Modal } from "@material-ui/core";
-// import Modal from "antd/lib/modal/Modal";
-import Login from "../Pages/Login/Login";
+// import LoginModal from "react-login-modal-sm";
+import { Button } from "react-bootstrap";
+import Modal from '@material-ui/core/Modal';
+import Login from '../Pages/Login/Login'
 
 const menu_list = [
   { text: "My House", link: "/" },
   { text: "Find Designer", link: "/designer" },
   { text: "Saved Ideas", link: "/idea" },
-  // { text: "Register",link:"/register"}
+  // { text: "Login/Sign Up", link: "/login" },
 ];
 
 const signIn = (item) => {
@@ -27,6 +28,21 @@ const signIn = (item) => {
 };
 
 const Header = () => {
+  // const [show, setShow] = useState(false);
+  // const toggleModal = () => {
+  //   setShow(!show);
+  // }
+  // const [modalStyle] = React.useState(getModalStyle);
+ 
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen=()=>{
+    setOpen(true)
+  }
+
+  const handleClose =()=>{
+    setOpen(false)
+  }
 
   return (
     <div className="header">
@@ -46,13 +62,19 @@ const Header = () => {
               <Link key={item.link} to={item.link} className="item disabled">
                 {signIn(item)}
               </Link>
-            )
-          )}
-
-          <Link to="/login">
-            Login
-          </Link>
+          ))}
+          <Button className="item disabled" onClick={handleOpen}>
+            Login/Sign Up
+          </Button>
         </div>
+        <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        <Login />
+      </Modal>
       </div>
     </div>
   );
