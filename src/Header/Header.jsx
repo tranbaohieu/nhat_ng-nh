@@ -3,8 +3,8 @@ import "./header.sass";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 // import LoginModal from "react-login-modal-sm";
-import { Button } from "react-bootstrap";
-import Modal from '@material-ui/core/Modal';
+import {Modal} from '@material-ui/core/';
+import {Button} from 'antd'
 import Login from '../Pages/Login/Login'
 
 const menu_list = [
@@ -34,7 +34,7 @@ const Header = () => {
   // }
   // const [modalStyle] = React.useState(getModalStyle);
  
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleOpen=()=>{
     setOpen(true)

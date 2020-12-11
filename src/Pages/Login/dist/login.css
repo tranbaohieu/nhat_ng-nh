@@ -1,0 +1,176 @@
+@charset "UTF-8";
+.team .team_logo {
+  text-align: center;
+  display: block;
+  margin: 56px 0 96px;
+}
+.team .team_logo img {
+  width: auto;
+}
+.team .team_member {
+  margin: 112px 200px;
+}
+.team .team_member .member_list_title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #F49A00;
+}
+.team .team_member .member_list_line {
+  width: 100px;
+  height: 4px;
+  background-color: grey;
+  margin: 32px 0;
+}
+.team .team_member .member_list_details {
+  display: flex;
+  flex-wrap: wrap;
+}
+.team .team_member .member_list_details .team_member_item_member {
+  width: 200px;
+  margin: 0 32px 32px 0;
+  text-align: center;
+}
+.team .team_member .member_list_details .team_member_item_member a {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 30px;
+  color: #F49A00;
+}
+.team .team_member .member_list_details .team_member_item_member img {
+  width: 100%;
+  filter: grayscale(100%);
+  transition: 0.5s ease;
+  border-radius: 20px;
+}
+.team .team_member .member_list_details .team_member_item_member:hover img {
+  filter: none;
+  border-radius: 0;
+}
+.team .team_details {
+  display: flex;
+}
+.team .team_details .team_details_image_wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+}
+.team .team_details .team_details_image_wrapper .team_details_image {
+  width: 488px;
+  height: 304px;
+}
+.team .team_details .team_details_description_wrapper {
+  width: 50%;
+  align-items: center;
+  display: flex;
+  margin-left: 32px;
+}
+.team .team_details .team_details_description_wrapper .team_details_description {
+  width: 488px;
+}
+.team .team_details .team_details_description_wrapper .team_details_description .team_details_description_title {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  color: #F49A00;
+}
+.team .team_details .team_details_description_wrapper .team_details_description .team_details_description_line {
+  width: 72px;
+  height: 2px;
+  background-color: #F49A00;
+  margin: 16px 0;
+}
+.team .team_details .team_details_description_wrapper .team_details_description .team_details_description_info {
+  margin-left: -24px;
+}
+.team .team_details .team_details_description_wrapper .team_details_description .team_details_description_info ul {
+  list-style: none;
+}
+.team .team_details .team_details_description_wrapper .team_details_description .team_details_description_info ul li {
+  margin-bottom: 8px;
+}
+.team .team_details .team_details_description_wrapper .team_details_description .team_details_description_info ul li:last-child {
+  margin-bottom: 0;
+}
+.team .team_details .team_details_description_wrapper .team_details_description .team_details_description_info ul li::before {
+  content: "•";
+  color: #F49A00;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+.team .team_japan .team_details_image_wrapper {
+  justify-content: flex-start;
+}
+.team .team_japan .team_details_description_wrapper {
+  justify-content: flex-end;
+  margin-left: 0;
+  margin-right: 32px;
+}
+
+@media (max-width: 1199.98px) {
+  .team {
+    padding: 20px;
+  }
+  .team .team_logo img {
+    width: 100%;
+    margin-bottom: 36px;
+  }
+  .team .team_details {
+    display: block;
+  }
+  .team .team_details .team_details_image_wrapper {
+    display: block;
+    width: auto;
+    margin-bottom: 24px;
+  }
+  .team .team_details .team_details_image_wrapper .team_details_image {
+    width: 100%;
+    height: auto;
+  }
+  .team .team_details .team_details_description_wrapper {
+    width: auto;
+    display: block;
+    margin-bottom: 24px;
+  }
+  .team .team_details .team_details_description_wrapper .team_details_description {
+    width: auto;
+  }
+  .team .team_vietnam .team_details_description_wrapper {
+    margin-left: 0;
+  }
+  .team .team_japan {
+    display: flex;
+    flex-direction: column;
+  }
+  .team .team_japan .team_details_image_wrapper {
+    order: 1;
+    justify-content: unset;
+    margin-bottom: 24px;
+  }
+  .team .team_japan .team_details_description_wrapper {
+    order: 2;
+    justify-content: unset;
+    margin-bottom: 24px;
+  }
+  .team .team_member {
+    margin: 0;
+  }
+  .team .team_member .member_list_title {
+    font-size: 24px;
+  }
+  .team .team_member .member_list_line {
+    height: 2px;
+  }
+  .team .team_member .member_list_details .team_member_item_member {
+    padding: 0px 10px 0 0px;
+    margin: 0;
+    width: 50%;
+  }
+  .team .team_member .member_list_details .team_member_item_member:nth-child(2) {
+    padding: 0px 0px 0px 10px;
+  }
+  .team .team_member .member_list_details .team_member_item_member a {
+    font-size: 16px;
+  }
+}
