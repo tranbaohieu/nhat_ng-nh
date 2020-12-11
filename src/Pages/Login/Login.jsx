@@ -1,27 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
 import { Card, Button, Form, Input } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import FacebookLogin from "react-facebook-login";
+// import FacebookLogin from "react-facebook-login";
 
-import GoogleLogin from "react-google-login";
-import { Redirect, Link } from "react-router-dom";
+// import GoogleLogin from "react-google-login";
+import { Link } from "react-router-dom";
 
 const Login = () => {
-  const responseFacebook = (response) => {
-    localStorage.setItem("name", response.name);
-    localStorage.setItem("avatar", response.picture.data.url);
-    window.location.reload(true);
-  };
-  const redirectHome = () => {
-    window.location.reload(true);
-    return <Redirect to="/" />;
-  };
-  const responseGoogle = (response) => {
-    console.log(response);
-    localStorage.setItem("name", response.Nw.profileObj.name);
-    localStorage.setItem("avatar", response.Nw.profileObj.imageUrl);
-    // window.location.reload(true);
-  };
+  // const responseFacebook = (response) => {
+  //   localStorage.setItem("name", response.name);
+  //   localStorage.setItem("avatar", response.picture.data.url);
+  //   window.location.reload(true);
+  // };
+  // const redirectHome = () => {
+  //   window.location.reload(true);
+  //   return <Redirect to="/" />;
+  // };
+  // const responseGoogle = (response) => {
+  //   console.log(response);
+  //   localStorage.setItem("name", response.Nw.profileObj.name);
+  //   localStorage.setItem("avatar", response.Nw.profileObj.imageUrl);
+  //   // window.location.reload(true);
+  // };
   // const responseGoogle = (response) => {
   //   console.log(response.Nw)
   //   // window.location.reload(true);
@@ -94,20 +94,7 @@ const Login = () => {
               Log in
             </Button>
           </Form.Item>
-          <Form.Item>
-            <FacebookLogin
-              appId="782795008940031"
-              fields="name,email,picture"
-              callback={responseFacebook}
-            />
-          </Form.Item>
-          <Form.Item>
-            <GoogleLogin
-              clientId="116556632783-lcj18jn3usv1fp6mh77vvtjjapls8rhs.apps.googleusercontent.com"
-              buttonText="LOGIN WITH GOOGLE"
-              onSuccess={responseGoogle}
-            />
-          </Form.Item>
+          
           <Form.Item>
             <Link to="/register">Not have an account? Register now</Link>
           </Form.Item>
