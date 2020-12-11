@@ -1,13 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import "./header.sass";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
+import LoginModal from "react-login-modal-sm";
+import { Button } from "react-bootstrap";
 
 const menu_list = [
   { text: "My House", link: "/" },
   { text: "Find Designer", link: "/designer" },
   { text: "Saved Ideas", link: "/idea" },
-  { text: "Login/Sign Up", link: "/login" },
+  // { text: "Login/Sign Up", link: "/login" },
 ];
 
 const signIn = (item) => {
@@ -26,6 +28,10 @@ const signIn = (item) => {
 }
 
 const Header = () => {
+  const [show, setShow] = useState(false);
+  const toggleModal = () => {
+    setShow(!show);
+  }
   return (
     <div className="header">
       <div className="navigation">
@@ -44,7 +50,11 @@ const Header = () => {
                 {signIn(item)}
               </Link>
           ))}
+          <Button className="item disabled" onClick={toggleModal}>
+            Login/Sign Up
+          </Button>
         </div>
+        <LoginModal toggleModal={toggleModal} showModal={show} />
       </div>
     </div>
   );
