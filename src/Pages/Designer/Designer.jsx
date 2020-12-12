@@ -18,9 +18,10 @@ const Designer = () => {
           <Button>
             Type
           </Button>
-          <Button>
-            Search
-          </Button>
+          <div className="button_search">
+            <Button>Search</Button>
+          </div>
+          
         </div>
         <div className="designer_list">
           {
