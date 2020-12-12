@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Card, Button, Form, Input } from "antd";
-import { UserOutlined, LockOutlined} from "@ant-design/icons";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Modal } from "@material-ui/core/";
-import './dist/login.css'
+import "./dist/login.css";
 // import SignUp from "../SIgn Up/index";
 
 // import "../../Header/header.sass"
@@ -12,6 +12,12 @@ import './dist/login.css'
 const Login = () => {
   const [register, setRegister] = useState(false);
   const [login, setLogin] = useState(false);
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [confirmPassword, setConfirmPassword] = useState("");
+  const email = useFormInput("");
+  const password = useFormInput("");
+  const confirmPassword = useFormInput("");
 
   const handleOpenLogin = () => {
     setLogin(true);
@@ -25,13 +31,32 @@ const Login = () => {
     setRegister(false);
     setLogin(false);
   };
+
+  const handleSignUp = () => {
+    let signUpForm = {
+      email: email.value,
+      password: password.value,
+      confirmPassword: confirmPassword.value,
+    };
+    console.log(signUpForm);
+  };
+
+  const handleSignIn = () => {
+    let signInForm = {
+      email:email.value,
+      password:password.value
+    };
+    console.log(signInForm)
+  };
+
   return (
     <div className="App" style={{ backgroundColor: "transparent" }}>
       {login ? (
+        /* sign up form */
         <Card
           style={{
             width: 440,
-            height: 450,
+            height: 470,
             margin: "auto",
             marginTop: 178,
             marginBottom: 124,
@@ -40,13 +65,15 @@ const Login = () => {
           bordered={true}
         >
           <div>
-            <Button id="button1"
+            <Button
+              id="button1"
               style={{ backgroundColor: "transparent" }}
               onClick={handleOpenRegister}
             >
               Log In
             </Button>
-            <Button id="button2"
+            <Button
+              id="button2"
               style={{ backgroundColor: "transparent" }}
               onClick={handleOpenLogin}
             >
@@ -69,8 +96,12 @@ const Login = () => {
             }}
             // onFinish={this.onFinish}
           >
-            <h2 style={{ color: "#F49A00" }}>Welcome to Ouchi</h2>
-            <span style={{display:"inline-block",paddingBottom:17}}>Let's build your dream house together</span>
+            <h2 style={{ color: "#F49A00", paddingTop: 20 }}>
+              Welcome to Ouchi
+            </h2>
+            <span style={{ display: "inline-block", paddingBottom: 17 }}>
+              Let's build your dream house together
+            </span>
             <Form.Item
               name="email"
               rules={[
@@ -88,7 +119,8 @@ const Login = () => {
                 style={{ height: "50px", borderRadius: "30px" }}
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="Username"
-                //   onChange={this.handleEmail}
+                value={email}
+                {...email}
               />
             </Form.Item>
 
@@ -107,7 +139,9 @@ const Login = () => {
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 type="password"
                 placeholder="Password"
-                //   onChange={this.handlePassword}
+                value={password}
+                {...password}
+                // onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Item>
 
@@ -138,7 +172,9 @@ const Login = () => {
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 type="password"
                 placeholder="Confirm Password"
-                //   onChange={this.handlePassword}
+                value={confirmPassword}
+                {...confirmPassword}
+                // onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </Form.Item>
 
@@ -154,7 +190,7 @@ const Login = () => {
                 }}
                 type="primary"
                 htmlType="submit"
-                //   onClick={this.handleSubmit}
+                onClick={handleSignUp}
               >
                 Register
               </Button>
@@ -162,10 +198,11 @@ const Login = () => {
           </Form>
         </Card>
       ) : (
+        /* login form */
         <Card
           style={{
             width: 440,
-            height: 380,
+            height: 400,
             margin: "auto",
             marginTop: 178,
             marginBottom: 124,
@@ -174,13 +211,15 @@ const Login = () => {
           bordered={true}
         >
           <div>
-            <Button id="button3"
+            <Button
+              id="button3"
               style={{ backgroundColor: "transparent" }}
               onClick={handleOpenRegister}
             >
               Log In
             </Button>
-            <Button id="button4"
+            <Button
+              id="button4"
               style={{ backgroundColor: "transparent" }}
               onClick={handleOpenLogin}
             >
@@ -203,8 +242,12 @@ const Login = () => {
             }}
             // onFinish={this.onFinish}
           >
-            <h2 style={{ color: "#F49A00" }}>Welcome to Ouchi</h2>
-            <span style={{display:"inline-block",paddingBottom:17}}>Let's build your dream house together</span>
+            <h2 style={{ color: "#F49A00", paddingTop: 20 }}>
+              Welcome to Ouchi
+            </h2>
+            <span style={{ display: "inline-block", paddingBottom: 17 }}>
+              Let's build your dream house together
+            </span>
 
             <Form.Item
               name="userEmail"
@@ -219,7 +262,9 @@ const Login = () => {
                 style={{ height: "50px", borderRadius: "30px" }}
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="Username"
-                // onChange={this.handleEmail}
+                value={email}
+                {...email}
+                // onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Item>
 
@@ -237,7 +282,9 @@ const Login = () => {
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 type="password"
                 placeholder="Password"
-                // onChange={handlePassWord}
+                value={password}
+                {...password}
+                // onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Item>
 
@@ -254,7 +301,7 @@ const Login = () => {
                 type="primary"
                 htmlType="submit"
                 className="login-form-button"
-                // onClick={this.handleClick}
+                onClick={handleSignIn}
               >
                 Log in
               </Button>
@@ -264,6 +311,18 @@ const Login = () => {
       )}
     </div>
   );
+};
+
+const useFormInput = (initialValue) => {
+  const [value, setValue] = useState(initialValue);
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+  return {
+    value,
+    onChange: handleChange,
+  };
 };
 
 export default Login;
