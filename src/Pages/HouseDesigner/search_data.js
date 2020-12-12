@@ -5,7 +5,7 @@ const room_list_search = [
       size: 20,
       room: "Bedroom",
       style: "Asian",
-      detail_link: "/designer-detail/1",
+      detail_link: "/house-house-designer-detail/1",
       rate: "5", 
       color: ["White", "Black"]
     },
@@ -15,7 +15,7 @@ const room_list_search = [
       size: 25,
       room: "Bedroom",
       style: "Classic",
-      detail_link: "/designer-detail/2",
+      detail_link: "/house-designer-detail/2",
       rate: "4", 
       color: ["White", "Beige", "Grey"]
     },
@@ -25,7 +25,7 @@ const room_list_search = [
       size: 22,
       room: "Bedroom",
       style: "Modern",
-      detail_link: "/designer-detail/3",
+      detail_link: "/house-designer-detail/3",
       rate: "5", 
       color: ["Pink", "White", "Grey", "Black"]
     },
@@ -35,7 +35,7 @@ const room_list_search = [
       size: 18,
       room: "Bedroom",
       style: "Modern",
-      detail_link: "/designer-detail/4",
+      detail_link: "/house-designer-detail/4",
       rate: "5", 
       color: ["Black", "Grey", "Navy"]
     },
@@ -45,7 +45,7 @@ const room_list_search = [
       size: 30,
       room: "Livingroom",
       style: "Neo-classic",
-      detail_link: "/designer-detail/5",
+      detail_link: "/house-designer-detail/5",
       rate: "5", 
       color: ["White", "Gold", "Dark brown"]
     },
@@ -55,7 +55,7 @@ const room_list_search = [
       size: 20,
       room: "Livingroom",
       style: "Asian",
-      detail_link: "/designer-detail/6",
+      detail_link: "/house-designer-detail/6",
       rate: "5", 
       color: ["Yellow","Woody","Brown"]
     },
@@ -65,7 +65,7 @@ const room_list_search = [
       size: 18,
       room: "Livingroom",
       style: "Industrial",
-      detail_link: "/designer-detail/7",
+      detail_link: "/house-designer-detail/7",
       rate: "5", 
       color: ["Stone grey", "Woddy brown"]
     },
@@ -75,7 +75,7 @@ const room_list_search = [
       size: 10,
       room: "Kitchen",
       style: "Modern",
-      detail_link: "/designer-detail/8",
+      detail_link: "/house-designer-detail/8",
       rate: "5", 
       color: ["Brown", "White"]
     },
@@ -85,7 +85,7 @@ const room_list_search = [
       size: 25,
       room: "Kitchen",
       style: "Industrial",
-      detail_link: "/designer-detail/9",
+      detail_link: "/house-designer-detail/9",
       rate: "5", 
       color: ["Woody", "White"]
     },
@@ -95,7 +95,7 @@ const room_list_search = [
       size: 15,
       room: "Bathroom",
       style: "Modern",
-      detail_link: "/designer-detail/10",
+      detail_link: "/house-designer-detail/10",
       rate: "5", 
       color: ["Woody", "Gold", "White"]
     },
@@ -105,7 +105,7 @@ const room_list_search = [
       size: 12,
       room: "Bathroom",
       style: "Tropical",
-      detail_link: "/designer-detail/11",
+      detail_link: "/house-designer-detail/11",
       rate: "5", 
       color: ["White", "Green"] 
     },
@@ -115,7 +115,7 @@ const room_list_search = [
       size: 27,
       room: "Kitchen",
       style: "Asian",
-      detail_link: "/designer-detail/12",
+      detail_link: "/house-designer-detail/12",
       rate: "5", 
       color: ["Woody", "Grey", "Green"]
     },
@@ -125,7 +125,7 @@ const room_list_search = [
     //   size: 20,
     //   room: "Kitchen",
     //   style: "Tropic",
-    //   detail_link: "/designer-detail/13",
+    //   detail_link: "/house-designer-detail/13",
     //   rate: "5", 
     //   color: "Green"
     // },
@@ -135,7 +135,7 @@ const room_list_search = [
     //   size: 18,
     //   room: "Livingroom",
     //   style: "Tropic",
-    //   detail_link: "/designer-detail/14",
+    //   detail_link: "/house-designer-detail/14",
     //   rate: "5", 
     //   color: "Green"
     // }
