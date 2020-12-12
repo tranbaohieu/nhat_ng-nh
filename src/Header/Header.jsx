@@ -63,9 +63,12 @@ const Header = () => {
                 {signIn(item)}
               </Link>
           ))}
-          <Button className="item disabled" onClick={handleOpen}>
-            Login/Sign Up
-          </Button>
+          <div className="item disabled">
+            <Button onClick={handleOpen}>
+              Login/Sign Up
+            </Button>
+          </div>
+          
         </div>
         <Modal
         open={open}

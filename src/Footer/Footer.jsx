@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="copyright">
-        Copyright © 2020 36 AND BROS
+        Copyright © 2020 Ouchi
       </div>
       <div className="social_icon">
         <a href="#abc">

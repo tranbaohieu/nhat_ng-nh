@@ -1,54 +1,68 @@
+.tba
+  text-align: center
+  font-size: 40px
+  min-height: 53vh
+  font-weight: bold
+  margin-top: 50px
+
 .designer_detail
-  display: block
-  width: 600 px
-  padding: 50px 100px
-  .designer_information 
-    display: flex
-    // height: 400px
-    .designer_information_image
-      margin-right: 20px
-      img
-        width: 750px
-        height: auto
-    .designer_information_detail
-      .designer_information_detail_title
-        font-size: 24px
-      p
-        padding: 5px
-        font-size: 20px
-        line-height: 24x
-        ul 
-            list-style: none
-            li
-              margin-bottom: 8px
-              &:last-child
-                margin-bottom: 0
-            li::before 
-              content: "\2022"
-              color: #F49A00
-              font-weight: bold
-              display: inline-block
-              width: 1em
-              margin-left: -1em
-
-  .design_sum_information
-    display: flex
-    font-size: 20px
-    .summary
-      margin-left: 20px
-      font-size: 24px 
-  .designer_furniture
-    width: 750px
-    th
-      padding: 20px 40px 10px
-    td
-      padding: 20px 40px 10px
-    table
-      display: block
-      .furniture_details
-        display: block;
-        max-height: 300px;
-        overflow-y: scroll;
-
-.carousel-item
-  height: 500px
+  padding: 0px
+  .designer_detail_image
+    width: auto
+    height: 211px
+  .designer_detail_information
+    text-align: center
+    margin: 20px
+    .designer_detail_information_title
+      font-size: 20px
+      line-height: 23px
+      color: #F49A00
+    .designer_detail_information_description
+      margin: 5px
+      padding: 5px
+      font-size: 14px
+      line-height: 16px
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+    .designer_detail_information_details
+      display: flex
+      justify-content: center
+      .designer_detail_information_details_1
+        margin-right: 120px
+        .designer_detail_information_details_1_type
+          margin-top: 20px
+          display: flex
+          .designer_detail_information_details_1_type_icon
+            margin-right: 25px
+        .designer_detail_information_details_1_location
+          margin-top: 20px
+          display: flex
+          .designer_detail_information_details_1_location_icon
+            margin-right: 20px
+      .designer_detail_information_details_2
+        .designer_detail_information_details_2_email
+          margin-top: 20px
+          display: flex
+          .designer_detail_information_details_2_email_icon
+            margin-right: 20px
+        .designer_detail_information_details_2_web
+          margin-top: 20px
+          display: flex
+          .designer_detail_information_details_2_web_icon
+            margin-right: 20px
+  .desinger_detail_projects
+    margin: 100px 200px
+    .designer_detail_projects_title
+      font-size: 20px
+      line-height: 23px
+      color: #F49A00
+      border-bottom: 2px solid #F49A00
+      width: 165px
+      padding: 10px 50px
+    .designer_detail_projects_list
+      margin-top: 100px
+      .designer_detail_projects_list_image
+        img
+          width: 300px
+          height: 200px
+      .designer_detail_projects_list_title
+        padding: 15px
