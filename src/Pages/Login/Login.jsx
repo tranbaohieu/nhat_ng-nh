@@ -39,7 +39,7 @@ const Login = () => {
           }}
           bordered={true}
         >
-          <div style={{ display: "flex", justifyContent: "space-around" }}>
+          <div>
             <Button id="button1"
               style={{ backgroundColor: "transparent" }}
               onClick={handleOpenRegister}
@@ -173,7 +173,7 @@ const Login = () => {
           }}
           bordered={true}
         >
-          <div style={{ display: "flex", justifyContent: "space-around" }}>
+          <div>
             <Button id="button3"
               style={{ backgroundColor: "transparent" }}
               onClick={handleOpenRegister}
