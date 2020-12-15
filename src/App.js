@@ -25,7 +25,6 @@ function App() {
           <Route exact path="/designer-detail/:id" component={DesignerDetail} />
           <Route exact path="/idea" component={Idea} />
           <Route exact path="/login" component={Login} />
-          
         </Switch>
         <Footer />
       </div>

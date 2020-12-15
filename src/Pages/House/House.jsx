@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./house.sass";
 import { Link } from "react-router-dom";
 import house_list from "./data.js";

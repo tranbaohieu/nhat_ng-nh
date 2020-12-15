@@ -5,7 +5,7 @@ const DesignerDetail = () => {
   return (
     <div className="designer_detail">
       <div className="designer_detail_image">
-        <img src={require("../../images/body/designerdetail/block_image.png")} alt='picture'/>
+        <img src={require("../../images/body/designerdetail/block_image.png")} alt='banner'/>
       </div>
       <div className="designer_detail_information">
         <div className="designer_detail_information_title">

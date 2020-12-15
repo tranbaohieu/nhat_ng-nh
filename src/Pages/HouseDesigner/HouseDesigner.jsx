@@ -1,8 +1,7 @@
-import React, {useEffect, useState, Component} from "react";
+import React, { Component } from "react";
 import "./housedesigner.sass";
 import { Link } from "react-router-dom";
 import news_list_search from "./search_data.js";
-import ReactStars from "react-rating-stars-component";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { Button } from "react-bootstrap";

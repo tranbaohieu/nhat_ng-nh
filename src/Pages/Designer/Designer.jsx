@@ -27,7 +27,7 @@ const Designer = () => {
           {
             designer_list.map((item, index) => (
               <div className="designer_list_item">
-                <img src={item.image_url} alt='picture'/>
+                <img src={item.image_url} alt='designer'/>
                 <div className="designer_list_item_content">
                   <div className="designer_list_item_content_title">{item.title}</div>
                   <div className="designer_list_item_type">{item.type}</div>

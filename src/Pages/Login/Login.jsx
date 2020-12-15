@@ -4,29 +4,13 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Modal } from "@material-ui/core/";
 import "./dist/login.css";
 import axios from "axios"
-import { Redirect } from "react-router-dom";
-// import SignUp from "../SIgn Up/index";
-
-// import "../../Header/header.sass"
-// import "./login.sass";
-// import { Link } from "react-router-dom";
 
 const Login = (props) => {
-  const [logined, setLogined] = useState(false);
   const [register, setRegister] = useState(false);
   const [login, setLogin] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [confirmPassword, setConfirmPassword] = useState("");
-  // const email = useFormInput("");
-  // const password = useFormInput("");
   const confirmPassword = useFormInput("");
-
-  // const userToken = localStorage.getItem("user") || null
-  // if (userToken == null) setLogined(false);
-  // else {
-  //   return <Redirect to={{ pathname: '/' }} />
-  // }
 
   const handleOpenLogin = () => {
     setLogin(true);
@@ -50,13 +34,6 @@ const Login = (props) => {
     console.log(signUpForm);
   };
 
-  const handleSignIn = () => {
-    let signInForm = {
-      email: email.value,
-      password: password.value
-    };
-    console.log(signInForm)
-  };
   const onChangePassword = (e) => {
     setPassword(e.target.value)
   };

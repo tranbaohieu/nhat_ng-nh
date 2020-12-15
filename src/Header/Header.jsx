@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./header.sass";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
-// import LoginModal from "react-login-modal-sm";
 import { Modal } from '@material-ui/core/';
 import { Button } from 'antd'
 import Login from '../Pages/Login/Login'
@@ -11,7 +10,6 @@ const menu_list = [
   { text: "My House", link: "/" },
   { text: "Find Designer", link: "/designer" },
   { text: "Saved Ideas", link: "/idea" },
-  // { text: "Login/Sign Up", link: "/login" },
 ];
 
 const signIn = (item) => {
