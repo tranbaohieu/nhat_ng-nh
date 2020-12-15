@@ -1,10 +1,18 @@
 import { Button } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import "./designer.sass";
 import {designer_list, top_designer} from './data.js';
 import { Link } from "react-router-dom";
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import IconButton from "@material-ui/core/IconButton";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import YoutubeSearchedForIcon from '@material-ui/icons/YoutubeSearchedFor';
+import TextField from '@material-ui/core/TextField';
 
 const Designer = () => {
+  const [type, setType] = useState('');
+  const handleSelectType = (e) => setType(e);
   return (
     <div className="designer">
       <div className="list">
@@ -12,13 +20,35 @@ const Designer = () => {
           Designer List
         </div>
         <div className="designer_filter">
-          <Button >
-            Search by designer name
-          </Button>
-          <Button>
-            Type
-          </Button>
-          <div className="button_search">
+          <div className="designer_filter_search">
+          <TextField
+            label="Search by designer name"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment>
+                  <IconButton>
+                    <YoutubeSearchedForIcon />
+                  </IconButton>
+                </InputAdornment>
+              )
+            }}
+          />
+          </div>
+          <div className="designer_filter_type">
+            <DropdownButton
+              alignRight
+              title={type ? type : 'Type'}
+              id="dropdown-menu-align-right"
+              onSelect={(e) => {handleSelectType(e)}}
+                >
+                <Dropdown.Item eventKey="Architecture">Architecture</Dropdown.Item>
+                <Dropdown.Item eventKey="Interior Architect">Interior Architect</Dropdown.Item>
+                <Dropdown.Item eventKey="Kitchen Planning">Kitchen Planning</Dropdown.Item>
+                <Dropdown.Item eventKey="Design/Decoration">Design/Decoration</Dropdown.Item>
+            </DropdownButton>
+          </div>
+
+          <div className="designer_filter_search_button">
             <Button>Search</Button>
           </div>
           
