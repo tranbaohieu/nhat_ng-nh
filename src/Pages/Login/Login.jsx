@@ -1,23 +1,32 @@
 import React, { useState } from "react";
-import { Card, Button, Form, Input } from "antd";
+import { Card, Button, Form, Input, notification } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Modal } from "@material-ui/core/";
 import "./dist/login.css";
+import axios from "axios"
+import { Redirect } from "react-router-dom";
 // import SignUp from "../SIgn Up/index";
 
 // import "../../Header/header.sass"
 // import "./login.sass";
 // import { Link } from "react-router-dom";
 
-const Login = () => {
+const Login = (props) => {
+  const [logined, setLogined] = useState(false);
   const [register, setRegister] = useState(false);
   const [login, setLogin] = useState(false);
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   // const [confirmPassword, setConfirmPassword] = useState("");
-  const email = useFormInput("");
-  const password = useFormInput("");
+  // const email = useFormInput("");
+  // const password = useFormInput("");
   const confirmPassword = useFormInput("");
+
+  // const userToken = localStorage.getItem("user") || null
+  // if (userToken == null) setLogined(false);
+  // else {
+  //   return <Redirect to={{ pathname: '/' }} />
+  // }
 
   const handleOpenLogin = () => {
     setLogin(true);
@@ -35,7 +44,7 @@ const Login = () => {
   const handleSignUp = () => {
     let signUpForm = {
       email: email.value,
-      password: password.value,
+      passwords: password.value,
       confirmPassword: confirmPassword.value,
     };
     console.log(signUpForm);
@@ -43,10 +52,42 @@ const Login = () => {
 
   const handleSignIn = () => {
     let signInForm = {
-      email:email.value,
-      password:password.value
+      email: email.value,
+      password: password.value
     };
     console.log(signInForm)
+  };
+  const onChangePassword = (e) => {
+    setPassword(e.target.value)
+  };
+  const onChangeEmail = (e) => {
+    setEmail(e.target.value)
+  };
+
+  const onCommit = (e) => {
+    var data = {
+      email: email,
+      passwords: password
+    };
+    axios.post('http://localhost:8000/auth/login', data)
+      .then((res) => {
+        notification.open({
+          type: 'success',
+          message: 'Success',
+          description: 'You are logged in!',
+          duration: 2
+        });
+        localStorage.setItem("user", JSON.stringify(res.data.userName));
+        props.onChangeStateLogIn(false)
+      })
+      .catch((err) => {
+        notification.open({
+          type: 'error',
+          message: 'Incorrect email or password.',
+          description: 'Please try again',
+          duration: 2
+        });
+      })
   };
 
   return (
@@ -94,7 +135,7 @@ const Login = () => {
             initialValues={{
               remember: true,
             }}
-            // onFinish={this.onFinish}
+          // onFinish={this.onFinish}
           >
             <h2 style={{ color: "#F49A00", paddingTop: 20 }}>
               Welcome to Ouchi
@@ -118,9 +159,10 @@ const Login = () => {
               <Input
                 style={{ height: "50px", borderRadius: "30px" }}
                 prefix={<UserOutlined className="site-form-item-icon" />}
-                placeholder="Username"
+                placeholder="email"
                 value={email}
                 {...email}
+                onChange={onChangeEmail}
               />
             </Form.Item>
 
@@ -141,7 +183,7 @@ const Login = () => {
                 placeholder="Password"
                 value={password}
                 {...password}
-                // onChange={(e) => setPassword(e.target.value)}
+                onChange={onChangePassword}
               />
             </Form.Item>
 
@@ -174,7 +216,7 @@ const Login = () => {
                 placeholder="Confirm Password"
                 value={confirmPassword}
                 {...confirmPassword}
-                // onChange={(e) => setConfirmPassword(e.target.value)}
+              // onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </Form.Item>
 
@@ -198,117 +240,117 @@ const Login = () => {
           </Form>
         </Card>
       ) : (
-        /* login form */
-        <Card
-          style={{
-            width: 440,
-            height: 400,
-            margin: "auto",
-            marginTop: 178,
-            marginBottom: 124,
-            textAlign: "center",
-          }}
-          bordered={true}
-        >
-          <div>
-            <Button
-              id="button3"
-              style={{ backgroundColor: "transparent" }}
-              onClick={handleOpenRegister}
-            >
-              Log In
-            </Button>
-            <Button
-              id="button4"
-              style={{ backgroundColor: "transparent" }}
-              onClick={handleOpenLogin}
-            >
-              Sign Up
-            </Button>
-            <Modal
-              open={login}
-              onClose={handleClose}
-              aria-labelledby="simple-modal-title"
-              aria-describedby="simple-modal-description"
-            ></Modal>
-          </div>
-
-          <Form
-            // id="components-form-demo-normal-login"
-            name="normal_login"
-            className="login-form"
-            initialValues={{
-              remember: true,
+          /* login form */
+          <Card
+            style={{
+              width: 440,
+              height: 400,
+              margin: "auto",
+              marginTop: 178,
+              marginBottom: 124,
+              textAlign: "center",
             }}
-            // onFinish={this.onFinish}
+            bordered={true}
           >
-            <h2 style={{ color: "#F49A00", paddingTop: 20 }}>
-              Welcome to Ouchi
+            <div>
+              <Button
+                id="button3"
+                style={{ backgroundColor: "transparent" }}
+                onClick={handleOpenRegister}
+              >
+                Log In
+            </Button>
+              <Button
+                id="button4"
+                style={{ backgroundColor: "transparent" }}
+                onClick={handleOpenLogin}
+              >
+                Sign Up
+            </Button>
+              <Modal
+                open={login}
+                onClose={handleClose}
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
+              ></Modal>
+            </div>
+
+            <Form
+              // id="components-form-demo-normal-login"
+              name="normal_login"
+              className="login-form"
+              initialValues={{
+                remember: true,
+              }}
+            // onFinish={this.onFinish}
+            >
+              <h2 style={{ color: "#F49A00", paddingTop: 20 }}>
+                Welcome to Ouchi
             </h2>
-            <span style={{ display: "inline-block", paddingBottom: 17 }}>
-              Let's build your dream house together
+              <span style={{ display: "inline-block", paddingBottom: 17 }}>
+                Let's build your dream house together
             </span>
 
-            <Form.Item
-              name="userEmail"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your User Email!",
-                },
-              ]}
-            >
-              <Input
-                style={{ height: "50px", borderRadius: "30px" }}
-                prefix={<UserOutlined className="site-form-item-icon" />}
-                placeholder="Username"
-                value={email}
-                {...email}
-                // onChange={(e) => setEmail(e.target.value)}
-              />
-            </Form.Item>
-
-            <Form.Item
-              name="password"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your Password!",
-                },
-              ]}
-            >
-              <Input
-                style={{ height: "50px", borderRadius: "30px" }}
-                prefix={<LockOutlined className="site-form-item-icon" />}
-                type="password"
-                placeholder="Password"
-                value={password}
-                {...password}
-                // onChange={(e) => setPassword(e.target.value)}
-              />
-            </Form.Item>
-
-            <Form.Item>
-              <Button
-                style={{
-                  display: "block",
-                  width: "100%",
-                  height: "50px",
-                  borderRadius: "30px",
-                  backgroundColor: "#F49A00",
-                  border: "none",
-                }}
-                type="primary"
-                htmlType="submit"
-                className="login-form-button"
-                onClick={handleSignIn}
+              <Form.Item
+                name="userEmail"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your User Email!",
+                  },
+                ]}
               >
-                Log in
+                <Input
+                  style={{ height: "50px", borderRadius: "30px" }}
+                  prefix={<UserOutlined className="site-form-item-icon" />}
+                  placeholder="Email"
+                  value={email}
+                  {...email}
+                  onChange={onChangeEmail}
+                />
+              </Form.Item>
+
+              <Form.Item
+                name="password"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your Password!",
+                  },
+                ]}
+              >
+                <Input
+                  style={{ height: "50px", borderRadius: "30px" }}
+                  prefix={<LockOutlined className="site-form-item-icon" />}
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  {...password}
+                  onChange={onChangePassword}
+                />
+              </Form.Item>
+
+              <Form.Item>
+                <Button
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    height: "50px",
+                    borderRadius: "30px",
+                    backgroundColor: "#F49A00",
+                    border: "none",
+                  }}
+                  type="primary"
+                  htmlType="submit"
+                  className="login-form-button"
+                  onClick={onCommit}
+                >
+                  Log in
               </Button>
-            </Form.Item>
-          </Form>
-        </Card>
-      )}
+              </Form.Item>
+            </Form>
+          </Card>
+        )}
     </div>
   );
 };

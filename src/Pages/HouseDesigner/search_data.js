@@ -5,7 +5,7 @@ const room_list_search = [
       size: 20,
       room: "Bedroom",
       style: "Asian",
-      detail_link: "/house-house-designer-detail/1",
+      detail_link: "/house-designer-detail/1",
       rate: "5", 
       color: ["White", "Black"]
     },

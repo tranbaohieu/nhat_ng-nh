@@ -66,75 +66,75 @@ const DesignerDetail = () => {
 
   const bodyRent = (
     <div style={{
-      textAlign: "center", 
+      textAlign: "center",
     }}>
       <form
-        style={{ 
-          display: "inline-block", 
+        style={{
+          display: "inline-block",
           width: 400,
           backgroundColor: "white",
           marginTop: 200
-        }}  
+        }}
       >
 
         <h2>List of Rent</h2>
-                  <TableContainer style={{ display: "inline-block"}}>
-                    <Table className={classes.table} aria-label="simple table">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell>No</TableCell>
-                          <TableCell align="right">Supplier</TableCell>
-                          <TableCell align="right">Price</TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                      <TableRow>
-                            <TableCell component="th" scope="row">
-                              1
-                            </TableCell>
-                            <TableCell align="right">Interior</TableCell>
-                            <TableCell align="right">13$</TableCell>
-                          </TableRow>
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
+        <TableContainer style={{ display: "inline-block" }}>
+          <Table className={classes.table} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>No</TableCell>
+                <TableCell align="right">Supplier</TableCell>
+                <TableCell align="right">Price</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell component="th" scope="row">
+                  1
+                  </TableCell>
+                <TableCell align="right">Interior</TableCell>
+                <TableCell align="right">13$</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </TableContainer>
       </form>
     </div>
   )
   const bodyPurchase = (
     <div style={{
-      textAlign: "center", 
+      textAlign: "center",
     }}>
       <form
-        style={{ 
-          display: "inline-block", 
+        style={{
+          display: "inline-block",
           width: 400,
           backgroundColor: "white",
           marginTop: 200
-        }}  
+        }}
       >
 
         <h2>List of purchase</h2>
-                  <TableContainer style={{ display: "inline-block"}}>
-                    <Table className={classes.table} aria-label="simple table">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell>No</TableCell>
-                          <TableCell align="right">Supplier</TableCell>
-                          <TableCell align="right">Price</TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                      <TableRow>
-                            <TableCell component="th" scope="row">
-                              1
-                            </TableCell>
-                            <TableCell align="right">Interior</TableCell>
-                            <TableCell align="right">13$</TableCell>
-                          </TableRow>
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
+        <TableContainer style={{ display: "inline-block" }}>
+          <Table className={classes.table} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>No</TableCell>
+                <TableCell align="right">Supplier</TableCell>
+                <TableCell align="right">Price</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell component="th" scope="row">
+                  1
+                  </TableCell>
+                <TableCell align="right">Interior</TableCell>
+                <TableCell align="right">13$</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </TableContainer>
       </form>
     </div>
   )
