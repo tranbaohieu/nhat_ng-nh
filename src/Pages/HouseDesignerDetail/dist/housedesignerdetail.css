@@ -1,0 +1,72 @@
+@charset "UTF-8";
+.designer_detail {
+  display: block;
+  width: 600 px;
+  padding: 50px 100px;
+}
+.designer_detail .designer_information {
+  display: flex;
+}
+.designer_detail .designer_information .designer_information_image {
+  margin-right: 20px;
+}
+.designer_detail .designer_information .designer_information_image img {
+  width: 750px;
+  height: auto;
+}
+.designer_detail .designer_information .designer_information_detail .designer_information_detail_title {
+  font-size: 24px;
+}
+.designer_detail .designer_information .designer_information_detail p {
+  padding: 5px;
+  font-size: 20px;
+  line-height: 24x;
+}
+.designer_detail .designer_information .designer_information_detail p ul {
+  list-style: none;
+}
+.designer_detail .designer_information .designer_information_detail p ul li {
+  margin-bottom: 8px;
+}
+.designer_detail .designer_information .designer_information_detail p ul li:last-child {
+  margin-bottom: 0;
+}
+.designer_detail .designer_information .designer_information_detail p ul li li::before {
+  content: "•";
+  color: #F49A00;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+.designer_detail .summary {
+  margin-left: 20px;
+  font-size: 24px;
+}
+.designer_detail .design_sum_information {
+  display: flex;
+  font-size: 20px;
+}
+.designer_detail .designer_furniture {
+  width: 100%;
+}
+.designer_detail .designer_furniture th {
+  padding: 20px 150px 10px 170px;
+  top: 0;
+  background: white;
+}
+.designer_detail .designer_furniture td {
+  padding: 20px 150px 10px 170px;
+}
+.designer_detail .designer_furniture table {
+  display: inline-block;
+}
+.designer_detail .designer_furniture table .furniture_details {
+  display: block;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.carousel-item {
+  height: 500px;
+}

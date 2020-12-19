@@ -32,9 +32,9 @@ const HouseDesignerDetail = () => {
   const closeRent = () => setShowRent({show: false});
 
   return (
-    <>
-    <div className="body">
-      <div className="designer_detail">
+  <>
+    <div className="body container-fluid" style={{paddingTop:10,paddingBottom:20}}>
+      <div className="designer_detail" style={{backgroundColor:"white"}}>
         {my_table.map((item, index) => (
           item.detail_link === window.location.pathname ?
             <div>
@@ -50,6 +50,11 @@ const HouseDesignerDetail = () => {
                       </Carousel.Item>
                     ))}
                   </Carousel>
+                  <div 
+                  style={{display:"flex", justifyContent:"center",paddingBottom:20}}
+                  >
+                  <Button variant="outlined" style={{borderColor:"#F49A00",color:"#F49A00",borderRadius:"25px"}}>Save</Button>
+                  </div>
                 </div>
 
                 <div className="designer_information_detail">
@@ -67,37 +72,47 @@ const HouseDesignerDetail = () => {
                 </div>
               </div>
 
+              <div className="summary">
+                  <b>Furniture Listing</b>
+                  <ul>
+                    {/* {item.data} */}
+                    <li>5620$</li>
+                    <li>{item.data.length} items</li>
+                    <li>1 supplier</li>
+                  </ul>
+                </div>
+
               <div className="design_sum_information">
                 <div className="designer_furniture">
-                  <TableContainer component={Paper}>
+                  <TableContainer component={Paper} >
                     <Table className={classes.table} aria-label="simple table">
                       <TableHead>
-                        <TableRow>
+                        <TableRow
+                        // style={{display:"flex",justifyContent:"space-around"}}
+                        >
                           <TableCell>No</TableCell>
-                          <TableCell align="right">Name</TableCell>
-                          <TableCell align="right">Price</TableCell>
-                          <TableCell align="right">Supplier</TableCell>
+                          <TableCell align="right">Furniture Name</TableCell>
                           <TableCell align="right"></TableCell>
                           <TableCell align="right"></TableCell>
                         </TableRow>
                       </TableHead>
-                      <TableBody>
+                      <TableBody className="furniture_details">
                         {item.data.map((data, index) => (
-                          <TableRow key={data.index}>
-                            <TableCell component="th" scope="row">
+                          <TableRow key={data.index} 
+                          // style={{display:"flex",justifyContent:"space-around"}}
+                          >
+                            <TableCell align="center">
                               {data.no}
                             </TableCell>
-                            <TableCell align="right">{data.furniture}</TableCell>
-                            <TableCell align="right">{data.price}</TableCell>
-                            <TableCell align="right">{data.supplier}</TableCell>
+                            <TableCell component="th" scope="row">{data.furniture}</TableCell>
                             <TableCell align="right">
-                              <Button variant="contained" style={{ backgroundColor: "#F49A00", color: "white" }} onClick={e => setShowPurchase({ show: true, name: data.furniture, price: data.price, supplier: data.supplier })}>
+                              <Button variant="contained" style={{ backgroundColor: "#F49A00", color: "white",borderRadius:25 }} onClick={e => setShowPurchase({ show: true, name: data.furniture, price: data.price, supplier: data.supplier })}>
                                 Purchase
                               </Button>
                             </TableCell>
                             <TableCell align="right">
                               <Button variant="contained"
-                                style={{ backgroundColor: "#F49A00", color: "white" }}
+                                style={{ backgroundColor: "#F49A00", color: "white",borderRadius:25 }}
                                 onClick={e => setShowRent({ show: true, name: data.furniture, price: data.price, supplier: data.supplier })}
                               >
                                 Rent
@@ -109,15 +124,7 @@ const HouseDesignerDetail = () => {
                     </Table>
                   </TableContainer>
                 </div>
-                <div className="summary">
-                  <b>Summary</b>
-                  <ul>
-                    {/* {item.data} */}
-                    <li>5620$</li>
-                    <li>{item.data.length} items</li>
-                    <li>1 supplier</li>
-                  </ul>
-                </div>
+                
               </div>
             </div>
             : null))}
