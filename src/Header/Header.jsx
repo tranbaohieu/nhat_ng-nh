@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./header.sass";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../images/logo.png";
 import { Modal } from '@material-ui/core/';
 import { Button } from 'antd'
@@ -29,7 +29,6 @@ const Header = () => {
   const [user, setUser] = useState(null);
   const [logined, setLogined] = useState(false);
 
-
   // const userToken = localStorage.getItem("user")
   // const user = userToken ? JSON.parse(userToken) : null;
   // const logined = userToken ? true : false;
@@ -51,6 +50,7 @@ const Header = () => {
 
   const handleOpen = () => {
     setOpen(true)
+    console.log(window.location.pathname)
   }
 
   const handleLogOut = () =>{
@@ -71,30 +71,27 @@ const Header = () => {
           </Link>
         </div>
         <div className="menu">
-          {menu_list.map((item, index) =>
-            index === 0 ? (
-              <Link key={item.link} to={item.link} className="item active">
-                {signIn(item)}
-              </Link>
-            ) : (
-                <Link key={item.link} to={item.link} className="item disabled">
+          <ul>
+            {menu_list.map((item, index) => (
+              <li>
+                <NavLink exact activeClassName="active" to={item.link} className="item">
                   {signIn(item)}
-                </Link>
-              ))}
-          <div className="item disabled">
-            {
-              logined ? (
-                <Button onClick={handleLogOut}>
+                </NavLink>
+              </li>
+            ))}
+            <li>
+              {logined ? (
+                <Button onClick={handleLogOut} className="item_login">
                   {user.email}
                 </Button>) : (
-                <Button onClick={handleOpen}>
+                <Button onClick={handleOpen} className="item_login">
                   Login/Sign Up
                 </Button>)
-            }
-
-          </div>
-
+              }
+            </li>
+          </ul>
         </div>
+
         <Modal
           open={open}
           onClose={handleClose}

@@ -26,8 +26,12 @@
       
 
   .menu
+    ul
+      list-style-type: none
+      li
+        float: left
     .item
-      color: #F49A00
+      color: #666666
       font-size: 20px
       line-height: 20px
       font-weight: 500
@@ -36,29 +40,23 @@
       padding: 20px 20px
       transition: .2s ease
       border-bottom: 2px solid transparent
+      &:hover
+        color: #F49A00
+        border-bottom-color: #F49A00
     .active
-      &:hover
-        color: #F49A00
-        border-bottom-color: #F49A00
-    .disabled 
-      color: #D6D6D6
-      &:hover
-        color: #F49A00
-        border-bottom-color: #F49A00
-    button
+      color: #F49A00
+    .item_login
       font-size: 20px
       line-height: 20px
       text-decoration: none
-      color: #D6D6D6
+      color: #666666
       font-weight: 500
       padding: 20px 20px
       transition: .2s ease
       background: white
       border: white
-      border-bottom-color: #F49A00
       &:hover
         color: #F49A00
-        border-bottom-color: #F49A00
 
 @media (max-width: 1199.98px)
   .header .navigation
