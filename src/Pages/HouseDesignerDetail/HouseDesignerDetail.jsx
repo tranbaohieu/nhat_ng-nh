@@ -33,8 +33,8 @@ const HouseDesignerDetail = () => {
 
   return (
   <>
-    <div className="body container-fluid" style={{paddingTop:10,paddingBottom:20}}>
-      <div className="designer_detail" style={{backgroundColor:"white"}}>
+    <div className="designer_body">
+      <div className="designer_detail">
         {my_table.map((item, index) => (
           item.detail_link === window.location.pathname ?
             <div>

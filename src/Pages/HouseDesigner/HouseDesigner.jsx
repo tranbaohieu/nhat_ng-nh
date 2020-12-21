@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import "./housedesigner.sass";
 import { Link } from "react-router-dom";
-import news_list_search from "./search_data.js";
+import list_search from "./search_data.js";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { Button } from "react-bootstrap";
 
-class News extends Component {
+class HouseDesigner extends Component {
   constructor(props) {
     super(props);
     this.state = {
       room: '',
       size: '',
       style: '',
-      color: ''
+      window: '',
+      balcony: ''
     }
   }
 
@@ -41,9 +42,14 @@ class News extends Component {
       style: e
     })
   }
-  handleSelectColor(e) {
+  handleSelectWindow(e) {
     this.setState({
-      color: e
+      window: e
+    })
+  }
+  handleSelectBalcony(e) {
+    this.setState({
+      balcony: e
     })
   }
 
@@ -56,12 +62,14 @@ class News extends Component {
   searchStyle = (item) => {
     return this.state.style === '' ? true : (this.state.style === item.style)
   }
-  searchColor = (item) => {
-    return this.state.color === '' ? true : item.color.includes(this.state.color)
+  searchWindow = (item) => {
+    return this.state.window === '' ? true : (this.state.window === item.window)
   }
-
+  searchBalcony = (item) => {
+    return this.state.balcony === '' ? true : (this.state.balcony === item.balcony)
+  }
   resetDropdownValue() {
-    this.setState({room: '', size: '', style: '', color: ''})
+    this.setState({room: '', size: '', style: '', window: '', balcony: ''})
   }
 
   render() {
@@ -116,37 +124,37 @@ class News extends Component {
               <Dropdown.Item eventKey="Northern Europe">Northern Europe</Dropdown.Item>
               <Dropdown.Item eventKey="Neo-classic">Neo-classic</Dropdown.Item>
           </DropdownButton>
-          
+
           <DropdownButton
             alignRight
-            title={this.state.color ? this.state.color : 'Color'}
+            title={this.state.window ? this.state.window : 'Number of windows'}
             id="dropdown-menu-align-right"
-            onSelect={(e) => {this.handleSelectColor(e)}}
+            onSelect={(e) => {this.handleSelectWindow(e)}}
               >
-              <Dropdown.Item eventKey="White">White</Dropdown.Item>
-              <Dropdown.Item eventKey="Gray">Gray</Dropdown.Item>
-              <Dropdown.Item eventKey="Black">Black</Dropdown.Item>
-              <Dropdown.Item eventKey="Pink">Pink</Dropdown.Item>
-              <Dropdown.Item eventKey="Red">Red</Dropdown.Item>
-              <Dropdown.Item eventKey="Grown">Grown</Dropdown.Item>
-              <Dropdown.Item eventKey="Orange">Orange</Dropdown.Item>
-              <Dropdown.Item eventKey="Yellow">Yellow</Dropdown.Item>
-              <Dropdown.Item eventKey="Green">Green</Dropdown.Item>
-              <Dropdown.Item eventKey="Blue">Blue</Dropdown.Item>
-              <Dropdown.Item eventKey="Purple">Purple</Dropdown.Item>
-              <Dropdown.Item eventKey="Gold">Gold</Dropdown.Item>
-              <Dropdown.Item eventKey="Dark brown">Dark brown</Dropdown.Item>
-              <Dropdown.Item eventKey="Stone grey">Stone grey</Dropdown.Item>
-              <Dropdown.Item eventKey="Woddy brown">Woddy brown</Dropdown.Item>
-
+              <Dropdown.Item eventKey="0">0</Dropdown.Item>
+              <Dropdown.Item eventKey="1">1</Dropdown.Item>
+              <Dropdown.Item eventKey="2">2</Dropdown.Item>
+              <Dropdown.Item eventKey="3">3</Dropdown.Item>
+              <Dropdown.Item eventKey="4">4</Dropdown.Item>
           </DropdownButton>
+
+          <DropdownButton
+            alignRight
+            title={this.state.balcony ? this.state.balcony : 'Have a balcony'}
+            id="dropdown-menu-align-right"
+            onSelect={(e) => {this.handleSelectBalcony(e)}}
+              >
+              <Dropdown.Item eventKey="Yes">Yes</Dropdown.Item>
+              <Dropdown.Item eventKey="No">No</Dropdown.Item>
+          </DropdownButton>
+          
           <Button className="btn-reset" onClick={() => {this.resetDropdownValue()}}> Reset to default </Button>
         </div>
         <div className="room">
           <div className="room_list">
           {
-            news_list_search.map((item, index) => (
-              this.searchRoom(item) && this.searchSize(item) && this.searchStyle(item) && this.searchColor(item) ?
+            list_search.map((item, index) => (
+              this.searchRoom(item) && this.searchSize(item) && this.searchStyle(item) && this.searchWindow(item) && this.searchBalcony(item) ?
                   <div className="room_list_item">
                   <div className="room_list_item_image">
                     <Link to={item.detail_link}>
@@ -169,16 +177,6 @@ class News extends Component {
                               <p>{item.size}m2</p>
                           </div>
                   <div className="room_list_item_area">{item.area}</div>
-                  {/* <div className="room_list_item_rate">
-                      <ReactStars
-                      count={5}
-                      size={24}
-                      value={item.rate}
-                      activeColor="#ffd700"
-                      edit={false}
-                      /> 
-                  </div>*/}
-                  {/* <Link to={item.detail_link} className="view_detail">View Detail &#62;&#62;</Link> */}
                   </div>
               : null)) 
           }
@@ -189,4 +187,4 @@ class News extends Component {
   }
 }
 
-export default News;
+export default HouseDesigner;

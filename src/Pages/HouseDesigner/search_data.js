@@ -6,8 +6,9 @@ const room_list_search = [
       room: "Bedroom",
       style: "Asian",
       detail_link: "/house-designer-detail/1",
-      rate: "5", 
-      color: ["White", "Black"]
+      rate: "5",
+      window: "1",
+      balcony: "Yes"
     },
     {
       image: require("../../images/body/Images/classic-bedroom-photos-by-leaf-design.jpg"),
@@ -17,7 +18,8 @@ const room_list_search = [
       style: "Classic",
       detail_link: "/house-designer-detail/2",
       rate: "4", 
-      color: ["White", "Beige", "Grey"]
+      window: "2",
+      balcony: "No"
     },
     {
       image: require("../../images/body/Images/modern-bedroom-photos-by-uk-design-studio-ki-n-truc-uk.jpg"),
@@ -26,8 +28,8 @@ const room_list_search = [
       room: "Bedroom",
       style: "Modern",
       detail_link: "/house-designer-detail/3",
-      rate: "5", 
-      color: ["Pink", "White", "Grey", "Black"]
+      window: "0",
+      balcony: "Yes"
     },
     {
       image: require("../../images/body/Images/modern-bedroom-photos-by-icon-interior.jpg"),
@@ -36,8 +38,8 @@ const room_list_search = [
       room: "Bedroom",
       style: "Modern",
       detail_link: "/house-designer-detail/4",
-      rate: "5", 
-      color: ["Black", "Grey", "Navy"]
+      window: "3",
+      balcony: "Yes"
     },
     {
       image: require("../../images/body/Images/classic-living-room-photos-by-icon-interior.jpg"),
@@ -47,7 +49,8 @@ const room_list_search = [
       style: "Neo-classic",
       detail_link: "/house-designer-detail/5",
       rate: "5", 
-      color: ["White", "Gold", "Dark brown"]
+      window: "4",
+      balcony: "Yes"
     },
     {
       image: require("../../images/body/Images/asian-living-room-photos-by-leaf-design.jpg"),
@@ -57,7 +60,8 @@ const room_list_search = [
       style: "Asian",
       detail_link: "/house-designer-detail/6",
       rate: "5", 
-      color: ["Yellow","Woody","Brown"]
+      window: "1",
+      balcony: "No"
     },
     {
       image: require("../../images/body/Images/industrial-living-room-photos-by-cong-ty-c-ph-n-n-i-th-t-decox.jpg"),
@@ -67,7 +71,8 @@ const room_list_search = [
       style: "Industrial",
       detail_link: "/house-designer-detail/7",
       rate: "5", 
-      color: ["Stone grey", "Woddy brown"]
+      window: "2",
+      balcony: "No"
     },
     {
       image: require("../../images/body/Images/tropical-kitchen-photos-by-ad.jpg"),
@@ -77,7 +82,8 @@ const room_list_search = [
       style: "Modern",
       detail_link: "/house-designer-detail/8",
       rate: "5", 
-      color: ["Brown", "White"]
+      window: "3",
+      balcony: "No"
     },
     {
       image: require("../../images/body/Images/modern-kitchen-photos-by-artof3l.jpg"),
@@ -87,7 +93,8 @@ const room_list_search = [
       style: "Industrial",
       detail_link: "/house-designer-detail/9",
       rate: "5", 
-      color: ["Woody", "White"]
+      window: "4",
+      balcony: "No"
     },
     {
       image: require("../../images/body/Images/tropical-bathroom-photos-by-ad.jpg"),
@@ -97,7 +104,8 @@ const room_list_search = [
       style: "Modern",
       detail_link: "/house-designer-detail/10",
       rate: "5", 
-      color: ["Woody", "Gold", "White"]
+      window: "0",
+      balcony: "No"
     },
     {
       image: require("../../images/body/Images/tropical-bathroom-photos.jpg"),
@@ -107,7 +115,8 @@ const room_list_search = [
       style: "Tropical",
       detail_link: "/house-designer-detail/11",
       rate: "5", 
-      color: ["White", "Green"] 
+      window: "1",
+      balcony: "Yes"
     },
     {
       image: require("../../images/body/Images/asian-kitchen-photos-by-leaf-design.jpg"),
@@ -117,29 +126,9 @@ const room_list_search = [
       style: "Asian",
       detail_link: "/house-designer-detail/12",
       rate: "5", 
-      color: ["Woody", "Grey", "Green"]
+      window: "4",
+      balcony: "Yes"
     },
-    // {
-    //   image: require("../../images/body/Images/13.jpg"),
-    //   description: "Thiết kế  hiện đại và tiện nghi",
-    //   size: 20,
-    //   room: "Kitchen",
-    //   style: "Tropic",
-    //   detail_link: "/house-designer-detail/13",
-    //   rate: "5", 
-    //   color: "Green"
-    // },
-    // {
-    //   image: require("../../images/body/Images/14.jpg"),
-    //   description: "Thiết kế  hiện đại và tiện nghi",
-    //   size: 18,
-    //   room: "Livingroom",
-    //   style: "Tropic",
-    //   detail_link: "/house-designer-detail/14",
-    //   rate: "5", 
-    //   color: "Green"
-    // }
-
   ];
 
 export default room_list_search;

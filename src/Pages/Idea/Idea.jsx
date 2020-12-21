@@ -30,7 +30,13 @@ const Idea = () => {
           }
         </div>
       </div>
-    : null
+    : (
+      <div className="idea_not_login">
+        <h1>
+          YOU SHOULD LOGIN
+        </h1>
+      </div>
+      )
   );
 };
 export default Idea;
