@@ -3,8 +3,10 @@ import "./header.sass";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../images/logo.png";
 import { Modal } from '@material-ui/core/';
-import { Button } from 'antd'
-import Login from '../Pages/Login/Login'
+import { Button } from 'antd';
+import Login from '../Pages/Login/Login';
+import ModalBootstrap from "react-bootstrap/Modal";
+import ButtonBootstrap from "react-bootstrap/Button";
 
 const menu_list = [
   { text: "My House", link: "/" },
@@ -25,18 +27,8 @@ const signIn = (item) => {
 };
 
 const Header = () => {
-  // const [userToken, setUserToken] = useState(null);
   const [user, setUser] = useState(null);
   const [logined, setLogined] = useState(false);
-
-  // const userToken = localStorage.getItem("user")
-  // const user = userToken ? JSON.parse(userToken) : null;
-  // const logined = userToken ? true : false;
-  // const [show, setShow] = useState(false);
-  // const toggleModal = () => {
-  //   setShow(!show);
-  // }
-  // const [modalStyle] = React.useState(getModalStyle);
 
   const [open, setOpen] = useState(false);
   const loggedIn = () => {
@@ -50,16 +42,26 @@ const Header = () => {
 
   const handleOpen = () => {
     setOpen(true)
-    console.log(window.location.pathname)
   }
 
-  const handleLogOut = () =>{
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+  const [openLogout, setOpenLogout] = useState(false);
+  const handleOpenLogout = () => {
+    setOpenLogout(true)
+  }
+
+  const handleCloseLogout = () => {
+    setOpenLogout(false)
+  }
+
+  const agreeLogout = () => {
+    setOpenLogout(false)
     localStorage.removeItem("user");
     setUser(null);
     setLogined(false)
-  }
-  const handleClose = () => {
-    setOpen(false)
   }
 
   return (
@@ -81,7 +83,7 @@ const Header = () => {
             ))}
             <li>
               {logined ? (
-                <Button onClick={handleLogOut} className="item_login">
+                <Button onClick={handleOpenLogout} className="item_login">
                   {user.email}
                 </Button>) : (
                 <Button onClick={handleOpen} className="item_login">
@@ -101,6 +103,23 @@ const Header = () => {
           <Login onChangeStateLogIn={loggedIn}/>
         </Modal>
       </div>
+
+      <ModalBootstrap show={openLogout} onHide={handleCloseLogout}>
+        <ModalBootstrap.Header closeButton>
+            <ModalBootstrap.Title>Are you sure to logout?</ModalBootstrap.Title>
+        </ModalBootstrap.Header>
+        {/* <ModalBootstrap.Body>
+          <b>Are you sure to logout?</b>
+        </ModalBootstrap.Body> */}
+        <ModalBootstrap.Footer>
+          <ButtonBootstrap variant="secondary" onClick={handleCloseLogout}>
+            No
+          </ButtonBootstrap>
+          <ButtonBootstrap variant="primary" onClick={agreeLogout}>
+            Yes
+          </ButtonBootstrap>
+        </ModalBootstrap.Footer>
+      </ModalBootstrap>
     </div>
   );
 };
