@@ -1,9 +1,23 @@
 import React from "react";
 import "./idea.sass";
 import idea_list from "./data.js";
+import { Button } from "react-bootstrap";
+
 
 const Idea = () => {
   const userToken = localStorage.getItem("user");
+  const id = 1
+  const get_saved_ideas = (userToken) => {
+    const requestOptions = {
+      method: 'GET',
+      headers: { 
+          'Content-Type': 'application/json',
+          },
+      };
+      fetch(`https://jsonplaceholder.typicode.com/posts?id=${id}`, requestOptions)
+          .then(response => response.json())
+          .then(data => console.log(data));
+  }
 
   return (
     userToken ?
@@ -32,6 +46,7 @@ const Idea = () => {
       </div>
     : (
       <div className="idea_not_login">
+      <Button onClick={get_saved_ideas}> Reset to default </Button>
         <h1>
           YOU SHOULD LOGIN
         </h1>

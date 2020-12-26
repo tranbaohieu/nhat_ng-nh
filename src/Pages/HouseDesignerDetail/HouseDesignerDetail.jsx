@@ -14,9 +14,7 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import ButtonBootstrap from "react-bootstrap/Button";
 
 const useStyles = makeStyles({
   table: {
@@ -24,11 +22,29 @@ const useStyles = makeStyles({
   },
 });
 
+
+
 const HouseDesignerDetail = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const classes = useStyles();
+
+  const save_room = (item) => {
+
+    const requestOptions = {
+      method: 'POST',
+      headers: { 
+          'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({  description: item.description,
+                                  size: item.size,
+                                  image: item.image })
+      };
+      fetch('https://jsonplaceholder.typicode.com/posts', requestOptions)
+          .then(response => response.json())
+          .then(data => console.log(data));
+  }
   const [purchase, setShowPurchase] = useState({show: false, no:"", name: "", price: "", supplier: ""});
   const [rent, setShowRent] = useState({show: false, no:"", name: "", price: "", supplier: ""})
 
@@ -57,7 +73,7 @@ const HouseDesignerDetail = () => {
                   <div 
                   style={{display:"flex", justifyContent:"center",paddingBottom:20}}
                   >
-                  <Button variant="outlined" style={{borderColor:"#F49A00",color:"#F49A00",borderRadius:"25px"}}>Save</Button>
+                  <Button onClick={save_room(item)} variant="outlined" style={{borderColor:"#F49A00",color:"#F49A00",borderRadius:"25px"}}>Save</Button>
                   </div>
                 </div>
 
