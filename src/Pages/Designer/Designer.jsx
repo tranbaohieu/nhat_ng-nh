@@ -59,7 +59,7 @@ const Designer = () => {
               <div className="designer_list_item">
                 <img src={item.image_url} alt='designer'/>
                 <div className="designer_list_item_content">
-                  <div className="designer_list_item_content_title">{item.title}</div>
+                  <Link to="/designer-detail/1" className="designer_list_item_content_title">{item.title}</Link>
                   <div className="designer_list_item_type">{item.type}</div>
                   <div className="designer_list_item_location">{item.location}</div>
                   <div className="designer_list_item_description">{item.description}</div>

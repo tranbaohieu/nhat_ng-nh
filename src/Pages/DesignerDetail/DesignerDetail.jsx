@@ -1,5 +1,7 @@
 import React from "react";
 import "./designerdetail.sass";
+import {desinger_detail_projects} from './data.js';
+import { Link } from "react-router-dom";
 
 const DesignerDetail = () => {
   return (
@@ -53,15 +55,22 @@ const DesignerDetail = () => {
           </div>
         </div>
       </div>
+
       <div className="desinger_detail_projects">
         <div className="designer_detail_projects_title">Projects</div>
         <div className="designer_detail_projects_list">
-          <div className="designer_detail_projects_list_image">
-            <img src={require("../../images/body/designerdetail/project1.png")} alt="project" />
-          </div>
-          <div className="designer_detail_projects_list_title">
-            Garden Villa . Green House area Phu Quoc
-          </div>
+        {
+          desinger_detail_projects.map((item, index) => (
+           
+                <div className="designer_detail_projects_list_item">
+                  <div className="designer_detail_projects_list_item_wrapper">
+                    <div className="designer_detail_projects_list_item_image">
+                      <Link to={item.detail_link}> <img src={item.img} alt={index}/></Link>
+                    </div>
+                    <div className="designer_detail_projects_list_item_title">{item.title}</div>
+                  </div>
+                </div>
+          ))}
         </div>
       </div>
     </div>

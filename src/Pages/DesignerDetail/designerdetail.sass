@@ -49,6 +49,7 @@
           display: flex
           .designer_detail_information_details_2_web_icon
             margin-right: 20px
+            
   .desinger_detail_projects
     margin: 100px 200px
     .designer_detail_projects_title
@@ -59,10 +60,29 @@
       width: 165px
       padding: 10px 50px
     .designer_detail_projects_list
-      margin-top: 100px
-      .designer_detail_projects_list_image
-        img
-          width: 300px
-          height: 200px
-      .designer_detail_projects_list_title
-        padding: 15px
+      margin-top: 80px
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-evenly
+      width: 100%
+      padding: 0 100px
+      .designer_detail_projects_list_item
+        width: 300px
+        margin-bottom: 32px
+        .designer_detail_projects_list_item_image
+          margin-bottom: 16px 
+          height: 250px
+          position: relative
+        .designer_detail_projects_list_item_title
+          text-align: center
+          margin-bottom: 12px
+          font-weight: 300
+          font-size: 18px
+          color: #000
+          line-height: 30px
+          cursor: pointer
+          &:hover
+            color: #F49A00
+            text-decoration: underline
+    
+        
