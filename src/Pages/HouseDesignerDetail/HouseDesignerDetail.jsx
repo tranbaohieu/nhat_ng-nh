@@ -61,7 +61,7 @@ const HouseDesignerDetail = () => {
   const sumPrice = (item) => {
     let sum = 0
     for (var i = 0; i < item.data.length; i++){
-      sum += item.data[i].price
+      sum += parseInt(item.data[i].price, 10)
     }
     return sum
   };

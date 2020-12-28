@@ -13,6 +13,18 @@ import TextField from '@material-ui/core/TextField';
 const Designer = () => {
   const [type, setType] = useState('');
   const handleSelectType = (e) => setType(e);
+  const [search_name, setSearchName] = useState('');
+  const getCurrentTextSearchName = (e) => {
+    setSearchName(e.target.value);
+  }
+  const searchType = (item) => {
+    return type === '' ? true : (type === item.type)
+  }
+
+  const searchName = (item) => {
+    return search_name === '' ? true : (item.title.match(RegExp(search_name, "gi")))
+  }
+
   return (
     <div className="designer">
       <div className="list">
@@ -22,6 +34,7 @@ const Designer = () => {
         <div className="designer_filter">
           <div className="designer_filter_search">
           <TextField
+            onChange={(e) => getCurrentTextSearchName(e)}
             label="Search by designer name"
             InputProps={{
               endAdornment: (
@@ -48,14 +61,15 @@ const Designer = () => {
             </DropdownButton>
           </div>
 
-          <div className="designer_filter_search_button">
+          {/* <div className="designer_filter_search_button">
             <Button>Search</Button>
-          </div>
+          </div> */}
           
         </div>
         <div className="designer_list">
           {
             designer_list.map((item, index) => (
+              searchType(item) && searchName(item) ? (
               <div className="designer_list_item">
                 <img src={item.image_url} alt='designer'/>
                 <div className="designer_list_item_content">
@@ -65,6 +79,7 @@ const Designer = () => {
                   <div className="designer_list_item_description">{item.description}</div>
                 </div>
               </div>
+              ) : null
             ))}
         </div>
       </div>
