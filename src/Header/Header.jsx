@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./header.sass";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../images/logo.png";
@@ -30,6 +30,14 @@ const Header = () => {
   const [user, setUser] = useState(null);
   const [logined, setLogined] = useState(false);
 
+  useEffect(()=>{
+    const userToken = localStorage.getItem("user");
+    if (userToken) {
+      setUser(JSON.parse(userToken));
+      setOpen(false)
+      setLogined(true)
+    }  
+  }, []);
   const [open, setOpen] = useState(false);
   const loggedIn = () => {
     const userToken = localStorage.getItem("user");
