@@ -1,22 +1,24 @@
 import React from "react";
 import "./idea.sass";
-import idea_list from "./data.js";
+// import idea_list from "./data.js";
 import { Button } from "react-bootstrap";
 
 
 const Idea = () => {
+  const [idea_list, setDataIdeaList] = useState("");
   const userToken = localStorage.getItem("user");
-  const id = 1
   const get_saved_ideas = (userToken) => {
     const requestOptions = {
-      method: 'GET',
+      method: 'POST',
       headers: { 
           'Content-Type': 'application/json',
           },
+          body: JSON.stringify({email: userToken})
       };
-      fetch(`https://jsonplaceholder.typicode.com/posts?id=${id}`, requestOptions)
+      fetch(`http://localhost:8000/room/getSavedRoom`, requestOptions)
           .then(response => response.json())
-          .then(data => console.log(data));
+          .then(data => setDataIdeaList(data))
+          .then(console.log(idea_list))
   }
 
   return (

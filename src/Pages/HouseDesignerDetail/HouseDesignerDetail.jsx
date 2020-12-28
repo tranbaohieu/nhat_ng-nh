@@ -22,13 +22,38 @@ const useStyles = makeStyles({
   },
 });
 
-
+const userToken = localStorage.getItem("user");
 
 const HouseDesignerDetail = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const classes = useStyles();
+  
+  const sumPrice = (item) => {
+    let sum = 0
+    for (var i = 0; i < item.data.length; i++){
+      sum += item.data[i].price
+    }
+    console.log(sum)
+    return sum
+  };
+  
+  const distinct = (value, index, self) => {
+    return self.indexOf(value) === index;
+  }
+
+  const countSupplier = (item) => {
+    let supplier = []
+    for (var i = 0; i < item.data.length; i++){
+      supplier.push(item.data[i].supplier)
+    }
+    distinctSupplier = supplier.filter(distinct)
+    console.log(supplier)
+    console.log(distinctSupplier)
+    console.log(distinctSupplier.length)
+    return distinctSupplier.length
+  };
 
   const save_room = (item) => {
 
@@ -37,11 +62,13 @@ const HouseDesignerDetail = () => {
       headers: { 
           'Content-Type': 'application/json',
           },
-          body: JSON.stringify({  description: item.description,
+          body: JSON.stringify({  email: userToken,
+                                  image: item.image_title,
+                                  title: item.title,
                                   size: item.size,
-                                  image: item.image })
+                                  detail_link: item.detail_link })
       };
-      fetch('https://jsonplaceholder.typicode.com/posts', requestOptions)
+      fetch('http://localhost:8000/auth/updateRoom', requestOptions)
           .then(response => response.json())
           .then(data => console.log(data));
   }
@@ -96,9 +123,9 @@ const HouseDesignerDetail = () => {
                   <b>Furniture Listing</b>
                   <ul>
                     {/* {item.data} */}
-                    <li>5620$</li>
+                    <li>{sumPrice}$</li>
                     <li>{item.data.length} items</li>
-                    <li>1 supplier</li>
+                    <li>{} supplier(s)</li>
                   </ul>
                 </div>
 
