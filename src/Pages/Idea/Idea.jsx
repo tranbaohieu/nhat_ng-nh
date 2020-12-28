@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import "./idea.sass";
-import idea_list from "./data.js";
-
+import { Link } from 'react-router-dom';
 
 
 const Idea = () => {
@@ -19,7 +18,7 @@ const Idea = () => {
     if (userToken) {
       fetch(`http://localhost:8000/room/getSavedRoom`, requestOptions)
         .then(response => response.json())
-        .then(data => {setDataIdeaList({rooms: data.rooms});console.log(data_idea_list.rooms); console.log(data.rooms)})
+        .then(data => {setDataIdeaList({rooms: data.rooms})})
     }
   }, []);
 
@@ -34,10 +33,14 @@ const Idea = () => {
             data_idea_list.rooms.map((item, index) => (
               <div className="idea_list_item">
                 <div className="idea_list_item_image">
-                  <img src={item.image} alt={index}/>
+                  <Link to={item.detail_link}>
+                    <img src={item.image} alt={index}/>
+                  </Link>
                 </div>
-                <div className="idea_list_item_description">
-                  <p>{item.description}</p>
+                <div className="idea_list_item_title">
+                  <Link to={item.detail_link}>
+                    <p>{item.title}</p>
+                  </Link>
                 </div>
                 <div className="idea_list_item_size">
                   <p>{item.size}m2</p>

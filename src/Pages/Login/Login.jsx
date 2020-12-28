@@ -54,6 +54,7 @@ const Login = (props) => {
           description: 'You are logged in!',
           duration: 2
         });
+        window.location.reload(false);
         localStorage.setItem("user", JSON.stringify(res.data.userName));
         props.onChangeStateLogIn(false)
       })

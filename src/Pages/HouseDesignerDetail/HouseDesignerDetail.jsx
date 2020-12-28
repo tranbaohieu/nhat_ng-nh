@@ -16,7 +16,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { notification } from "antd";
-import Axios from "axios";
+import axios from "axios";
 
 const useStyles = makeStyles({
   table: {
@@ -26,29 +26,32 @@ const useStyles = makeStyles({
 
 const userToken = localStorage.getItem("user");
 
+
 const HouseDesignerDetail = () => {
   
   const save_room = (item) => {
-    const requestOptions = {
-      method: 'POST',
-      headers: { 
-          'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({  email: userToken,
-                                  image: item.image_title,
-                                  title: item.title,
-                                  size: item.size,
-                                  detail_link: item.detail_link })
-      };
-    Axios('http://localhost:8000/auth/updateRoom', requestOptions)
+    if (userToken){
+      const requestOptions = {
+        email: userToken,
+        image: item.image_title,
+        title: item.title,
+        size: item.size,
+        detail_link: item.detail_link
+        };
+      axios.post('http://localhost:8000/auth/updateRoom', requestOptions)
         .then(response => {
           notification.open({
             type: 'success',
             message: 'Success',
             description: 'Save ideas succesfully',
             duration: 2
-          });
-    })
+          })
+      })
+    }
+    else {
+      alert("You must login to use this function")
+    }
+    
   }
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -104,7 +107,14 @@ const HouseDesignerDetail = () => {
                   <div 
                   style={{display:"flex", justifyContent:"center",paddingBottom:20}}
                   >
-                    <Button variant="outlined" style={{borderColor:"#F49A00",color:"#F49A00",borderRadius:"25px"}} onClick={save_room}>Save</Button>
+                    <Button 
+                    variant="outlined" 
+                    style={{borderColor:"#F49A00",color:"#F49A00",borderRadius:"25px"}} 
+                    onClick={() => save_room(item)}
+                    htmlType="submit"
+                    >
+                      Save
+                    </Button>
                   </div>
                 </div>
 
