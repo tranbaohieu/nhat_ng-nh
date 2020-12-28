@@ -1,13 +1,14 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./idea.sass";
-// import idea_list from "./data.js";
-import { Button } from "react-bootstrap";
+import idea_list from "./data.js";
+
 
 
 const Idea = () => {
-  const [idea_list, setDataIdeaList] = useState("");
+  const [data_idea_list, setDataIdeaList] = useState({rooms: []});
   const userToken = localStorage.getItem("user");
-  const get_saved_ideas = (userToken) => {
+  
+  useEffect(()=>{
     const requestOptions = {
       method: 'POST',
       headers: { 
@@ -15,11 +16,12 @@ const Idea = () => {
           },
           body: JSON.stringify({email: userToken})
       };
+    if (userToken) {
       fetch(`http://localhost:8000/room/getSavedRoom`, requestOptions)
-          .then(response => response.json())
-          .then(data => setDataIdeaList(data))
-          .then(console.log(idea_list))
-  }
+        .then(response => response.json())
+        .then(data => {setDataIdeaList({rooms: data.rooms});console.log(data_idea_list.rooms); console.log(data.rooms)})
+    }
+  }, []);
 
   return (
     userToken ?
@@ -29,7 +31,7 @@ const Idea = () => {
         </div>
         <div className="idea_list">
           {
-            idea_list.map((item, index) => (
+            data_idea_list.rooms.map((item, index) => (
               <div className="idea_list_item">
                 <div className="idea_list_item_image">
                   <img src={item.image} alt={index}/>
@@ -48,7 +50,6 @@ const Idea = () => {
       </div>
     : (
       <div className="idea_not_login">
-      <Button onClick={get_saved_ideas}> Reset to default </Button>
         <h1>
           YOU SHOULD LOGIN
         </h1>

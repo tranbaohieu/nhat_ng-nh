@@ -15,6 +15,8 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { notification } from "antd";
+import Axios from "axios";
 
 const useStyles = makeStyles({
   table: {
@@ -25,6 +27,29 @@ const useStyles = makeStyles({
 const userToken = localStorage.getItem("user");
 
 const HouseDesignerDetail = () => {
+  
+  const save_room = (item) => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 
+          'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({  email: userToken,
+                                  image: item.image_title,
+                                  title: item.title,
+                                  size: item.size,
+                                  detail_link: item.detail_link })
+      };
+    Axios('http://localhost:8000/auth/updateRoom', requestOptions)
+        .then(response => {
+          notification.open({
+            type: 'success',
+            message: 'Success',
+            description: 'Save ideas succesfully',
+            duration: 2
+          });
+    })
+  }
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -35,7 +60,6 @@ const HouseDesignerDetail = () => {
     for (var i = 0; i < item.data.length; i++){
       sum += item.data[i].price
     }
-    console.log(sum)
     return sum
   };
   
@@ -48,30 +72,10 @@ const HouseDesignerDetail = () => {
     for (var i = 0; i < item.data.length; i++){
       supplier.push(item.data[i].supplier)
     }
-    distinctSupplier = supplier.filter(distinct)
-    console.log(supplier)
-    console.log(distinctSupplier)
-    console.log(distinctSupplier.length)
+    let distinctSupplier = supplier.filter(distinct)
     return distinctSupplier.length
   };
 
-  const save_room = (item) => {
-
-    const requestOptions = {
-      method: 'POST',
-      headers: { 
-          'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({  email: userToken,
-                                  image: item.image_title,
-                                  title: item.title,
-                                  size: item.size,
-                                  detail_link: item.detail_link })
-      };
-      fetch('http://localhost:8000/auth/updateRoom', requestOptions)
-          .then(response => response.json())
-          .then(data => console.log(data));
-  }
   const [purchase, setShowPurchase] = useState({show: false, no:"", name: "", price: "", supplier: ""});
   const [rent, setShowRent] = useState({show: false, no:"", name: "", price: "", supplier: ""})
 
@@ -100,7 +104,7 @@ const HouseDesignerDetail = () => {
                   <div 
                   style={{display:"flex", justifyContent:"center",paddingBottom:20}}
                   >
-                  <Button onClick={save_room(item)} variant="outlined" style={{borderColor:"#F49A00",color:"#F49A00",borderRadius:"25px"}}>Save</Button>
+                    <Button variant="outlined" style={{borderColor:"#F49A00",color:"#F49A00",borderRadius:"25px"}} onClick={save_room}>Save</Button>
                   </div>
                 </div>
 
@@ -123,9 +127,9 @@ const HouseDesignerDetail = () => {
                   <b>Furniture Listing</b>
                   <ul>
                     {/* {item.data} */}
-                    <li>{sumPrice}$</li>
+                    <li>{sumPrice(item)}$</li>
                     <li>{item.data.length} items</li>
-                    <li>{} supplier(s)</li>
+                    <li>{countSupplier(item)} supplier(s)</li>
                   </ul>
                 </div>
 
