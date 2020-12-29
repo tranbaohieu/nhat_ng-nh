@@ -200,14 +200,14 @@ const HouseDesignerDetail = () => {
                             <TableCell align="center">
                               <div className="button_purchase_rent">
                                 <div className="button_purchase">
-                                  <Button variant="contained" style={{ backgroundColor: "#F49A00", color: "white",borderRadius:25 }} onClick={e => setShowPurchase({ show: true, no:data.no, name: data.furniture, price: data.price, supplier: data.supplier, supplier_link: data.supplier_link })}>
+                                  <Button variant="contained" style={{ backgroundColor: "#F49A00", color: "white",borderRadius:25 }} onClick={e => setShowPurchase({ show: true, no:data.no, name: data.furniture, price: data.price, supplier: data.supplier, supplier_link: data.purchase_link })}>
                                     Purchase
                                   </Button>
                                 </div>
                                 <div className="button_rent">
                                   <Button variant="contained"
                                     style={{ backgroundColor: "#F49A00", color: "white",borderRadius:25 }}
-                                    onClick={e => setShowRent({ show: true, no: data.no, name: data.furniture, price: data.price, supplier: data.supplier, supplier_link: data.supplier_link })}
+                                    onClick={e => setShowRent({ show: true, no: data.no, name: data.furniture, price: data.price, supplier: data.supplier_rent, supplier_link: data.rent_link })}
                                   >
                                     Rent
                                   </Button>
@@ -255,7 +255,7 @@ const HouseDesignerDetail = () => {
                   {purchase.no}
                 </TableCell>
                 <TableCell>
-                  <a rel="noopener noreferrer" href={purchase.purchase_link}>
+                  <a rel="noopener noreferrer" href={purchase.supplier_link}>
                     {purchase.supplier}
                   </a>
                 </TableCell>
@@ -300,8 +300,8 @@ const HouseDesignerDetail = () => {
                   {rent.no}
                 </TableCell>
                 <TableCell>
-                  <a rel="noopener noreferrer" href={rent.rent_link}>
-                    {rent.supplier_rent}
+                  <a rel="noopener noreferrer" href={rent.supplier_link}>
+                    {rent.supplier}
                   </a>
                 </TableCell>
                 <TableCell>
