@@ -17,7 +17,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { notification } from "antd";
 import axios from "axios";
-import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   table: {
@@ -256,9 +255,9 @@ const HouseDesignerDetail = () => {
                   {purchase.no}
                 </TableCell>
                 <TableCell>
-                  <Link to={purchase.supplier_link}>
+                  <a rel="noopener noreferrer" href={purchase.supplier_link}>
                     {purchase.supplier}
-                  </Link>
+                  </a>
                 </TableCell>
                 <TableCell>
                   {purchase.price}
@@ -301,9 +300,9 @@ const HouseDesignerDetail = () => {
                   {rent.no}
                 </TableCell>
                 <TableCell>
-                  <Link to={rent.supplier_link}>
+                  <a rel="noopener noreferrer" href={rent.supplier_link}>
                     {rent.supplier}
-                  </Link>
+                  </a>
                 </TableCell>
                 <TableCell>
                   {rent.price}
