@@ -8,6 +8,7 @@ const Idea = () => {
   const userToken = localStorage.getItem("user");
   
   useEffect(()=>{
+    if (userToken) {
     const requestOptions = {
       method: 'POST',
       headers: { 
@@ -15,7 +16,6 @@ const Idea = () => {
           },
           body: JSON.stringify({email: JSON.parse(userToken).email})
       };
-    if (userToken) {
       fetch(`https://ouichi.herokuapp.com/room/getSavedRoom`, requestOptions)
         .then(response => response.json())
         .then(data => {setDataIdeaList({rooms: data.rooms})})
