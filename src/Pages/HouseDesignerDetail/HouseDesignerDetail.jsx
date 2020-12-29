@@ -255,7 +255,7 @@ const HouseDesignerDetail = () => {
                   {purchase.no}
                 </TableCell>
                 <TableCell>
-                  <a rel="noopener noreferrer" href={purchase.supplier_link}>
+                  <a rel="noopener noreferrer" href={purchase.purchase_link}>
                     {purchase.supplier}
                   </a>
                 </TableCell>
@@ -300,8 +300,8 @@ const HouseDesignerDetail = () => {
                   {rent.no}
                 </TableCell>
                 <TableCell>
-                  <a rel="noopener noreferrer" href={rent.supplier_link}>
-                    {rent.supplier}
+                  <a rel="noopener noreferrer" href={rent.rent_link}>
+                    {rent.supplier_rent}
                   </a>
                 </TableCell>
                 <TableCell>
