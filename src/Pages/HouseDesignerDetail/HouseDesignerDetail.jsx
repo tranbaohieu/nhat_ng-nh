@@ -17,6 +17,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { notification } from "antd";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   table: {
@@ -26,38 +27,75 @@ const useStyles = makeStyles({
 
 const userToken = localStorage.getItem("user");
 
-
 const HouseDesignerDetail = () => {
+  const classes = useStyles();
+  const [savedBoolean, setSavedBoolean] = useState(false);
+  const [purchase, setShowPurchase] = useState({show: false, no:"", name: "", price: "", supplier: "", supplier_link: ""});
+  const [rent, setShowRent] = useState({show: false, no:"", name: "", price: "", supplier: "", supplier_link: ""})
+
+  const closePurchase = () => setShowPurchase({show: false});
+  const closeRent = () => setShowRent({show: false});
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const requestOptions = {
+      method: 'POST',
+      headers: { 
+          'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({email: JSON.parse(userToken).email,
+            detail_link: window.location.pathname})
+      };
+      fetch(`https://ouichi.herokuapp.com/room/checkSavedRoom`, requestOptions)
+        .then(response => response.json())
+        .then(data => {setSavedBoolean(data.success); console.log(data)})
+      
+  }, []);
   
   const save_room = (item) => {
     if (userToken){
-      const requestOptions = {
-        email: userToken,
-        image: item.image_title,
-        title: item.title,
-        size: item.size,
-        detail_link: item.detail_link
-        };
-      axios.post('https://ouichi.herokuapp.com/auth/updateRoom', requestOptions)
-        .then(response => {
-          notification.open({
-            type: 'success',
-            message: 'Success',
-            description: 'Save ideas succesfully',
-            duration: 2
+      if (savedBoolean) {
+        const deleteRequest = {
+          email: JSON.parse(userToken).email,
+          detail_link: item.detail_link
+          };
+        axios.post('https://ouichi.herokuapp.com/room/dropSavedRoom', deleteRequest)
+          .then(response => {
+            notification.open({
+              type: 'success',
+              message: 'Success',
+              description: 'Unsave successfully',
+              duration: 2
+            })
           })
-      })
+          .then(setSavedBoolean(false))
+      }
+      else {
+        const updateRequest = {
+          email: JSON.parse(userToken).email,
+          image: item.image_title,
+          title: item.title,
+          size: item.size,
+          detail_link: item.detail_link
+          };
+        console.log(updateRequest)
+        axios.post('https://ouichi.herokuapp.com/auth/updateRoom', updateRequest)
+          .then(response => {
+            notification.open({
+              type: 'success',
+              message: 'Success',
+              description: 'Save succesfully',
+              duration: 2
+            })
+          })
+          .then(setSavedBoolean(true))
+      }
     }
     else {
       alert("You must login to use this function")
     }
-    
   }
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  const classes = useStyles();
-  
+    
   const sumPrice = (item) => {
     let sum = 0
     for (var i = 0; i < item.data.length; i++){
@@ -78,12 +116,6 @@ const HouseDesignerDetail = () => {
     let distinctSupplier = supplier.filter(distinct)
     return distinctSupplier.length
   };
-
-  const [purchase, setShowPurchase] = useState({show: false, no:"", name: "", price: "", supplier: ""});
-  const [rent, setShowRent] = useState({show: false, no:"", name: "", price: "", supplier: ""})
-
-  const closePurchase = () => setShowPurchase({show: false});
-  const closeRent = () => setShowRent({show: false});
 
   return (
   <>
@@ -113,7 +145,10 @@ const HouseDesignerDetail = () => {
                     onClick={() => save_room(item)}
                     htmlType="submit"
                     >
-                      Save
+                      {savedBoolean ? 
+                        <div className="textSubmit">Unsave</div>
+                        : <div className="textSubmit">Save</div>
+                      }
                     </Button>
                   </div>
                 </div>
@@ -166,14 +201,14 @@ const HouseDesignerDetail = () => {
                             <TableCell align="center">
                               <div className="button_purchase_rent">
                                 <div className="button_purchase">
-                                  <Button variant="contained" style={{ backgroundColor: "#F49A00", color: "white",borderRadius:25 }} onClick={e => setShowPurchase({ show: true, no:data.no, name: data.furniture, price: data.price, supplier: data.supplier })}>
+                                  <Button variant="contained" style={{ backgroundColor: "#F49A00", color: "white",borderRadius:25 }} onClick={e => setShowPurchase({ show: true, no:data.no, name: data.furniture, price: data.price, supplier: data.supplier, supplier_link: data.supplier_link })}>
                                     Purchase
                                   </Button>
                                 </div>
                                 <div className="button_rent">
                                   <Button variant="contained"
                                     style={{ backgroundColor: "#F49A00", color: "white",borderRadius:25 }}
-                                    onClick={e => setShowRent({ show: true, no: data.no, name: data.furniture, price: data.price, supplier: data.supplier })}
+                                    onClick={e => setShowRent({ show: true, no: data.no, name: data.furniture, price: data.price, supplier: data.supplier, supplier_link: data.supplier_link })}
                                   >
                                     Rent
                                   </Button>
@@ -221,7 +256,9 @@ const HouseDesignerDetail = () => {
                   {purchase.no}
                 </TableCell>
                 <TableCell>
-                  {purchase.supplier}
+                  <Link to={purchase.supplier_link}>
+                    {purchase.supplier}
+                  </Link>
                 </TableCell>
                 <TableCell>
                   {purchase.price}
@@ -264,7 +301,9 @@ const HouseDesignerDetail = () => {
                   {rent.no}
                 </TableCell>
                 <TableCell>
-                  {rent.supplier}
+                  <Link to={rent.supplier_link}>
+                    {rent.supplier}
+                  </Link>
                 </TableCell>
                 <TableCell>
                   {rent.price}

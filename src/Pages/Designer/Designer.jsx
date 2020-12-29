@@ -61,9 +61,9 @@ const Designer = () => {
             </DropdownButton>
           </div>
 
-          {/* <div className="designer_filter_search_button">
+          <div className="designer_filter_search_button">
             <Button>Search</Button>
-          </div> */}
+          </div>
           
         </div>
         <div className="designer_list">

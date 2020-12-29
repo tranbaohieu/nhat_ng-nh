@@ -13,7 +13,7 @@ const Idea = () => {
       headers: { 
           'Content-Type': 'application/json',
           },
-          body: JSON.stringify({email: userToken})
+          body: JSON.stringify({email: JSON.parse(userToken).email})
       };
     if (userToken) {
       fetch(`https://ouichi.herokuapp.com/room/getSavedRoom`, requestOptions)
