@@ -16,7 +16,7 @@ const Idea = () => {
           body: JSON.stringify({email: userToken})
       };
     if (userToken) {
-      fetch(`http://localhost:8000/room/getSavedRoom`, requestOptions)
+      fetch(`https://ouichi.herokuapp.com/room/getSavedRoom`, requestOptions)
         .then(response => response.json())
         .then(data => {setDataIdeaList({rooms: data.rooms})})
     }

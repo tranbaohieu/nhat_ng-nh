@@ -38,7 +38,7 @@ const HouseDesignerDetail = () => {
         size: item.size,
         detail_link: item.detail_link
         };
-      axios.post('http://localhost:8000/auth/updateRoom', requestOptions)
+      axios.post('https://ouichi.herokuapp.com/auth/updateRoom', requestOptions)
         .then(response => {
           notification.open({
             type: 'success',

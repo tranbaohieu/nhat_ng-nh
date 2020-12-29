@@ -25,7 +25,32 @@ const Login = (props) => {
     setLogin(false);
   };
 
-  const handleSignUp = () => {
+  const handleSignUp = (e) => {
+    var data = {
+      email: email,
+      passwords: password
+    };
+    axios.post('https://ouichi.herokuapp.com/auth/register', data)
+      .then((res) => {
+        notification.open({
+          type: 'success',
+          message: 'Success',
+          description: 'Register successfully!',
+          duration: 2
+        });
+        // window.location.reload(false);
+        // localStorage.setItem("user", JSON.stringify(res.data.userName));
+        // props.onChangeStateLogIn(false)
+      })
+      .catch((err) => {
+        notification.open({
+          type: 'error',
+          message: 'This email already exists!',
+          description: 'Please try again',
+          duration: 2
+        });
+      })
+
     let signUpForm = {
       email: email.value,
       passwords: password.value,
@@ -46,7 +71,7 @@ const Login = (props) => {
       email: email,
       passwords: password
     };
-    axios.post('http://localhost:8000/auth/login', data)
+    axios.post('https://ouichi.herokuapp.com/auth/login', data)
       .then((res) => {
         notification.open({
           type: 'success',
